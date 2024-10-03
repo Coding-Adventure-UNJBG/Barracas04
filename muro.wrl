@@ -1,0 +1,26 @@
+#VRML V2.0 utf8
+
+PROTO Muro [
+	field SFColor colorBase 1 1 0 # amarillo
+	field SFVec3f posicion 0 0 0  # por defecto en el origen	
+	field SFVec3f proporciones 1 1 0.1
+]
+{	  
+	Transform {
+		translation	IS posicion	children Shape {
+			geometry Box { size IS proporciones}
+			appearance Appearance { 
+				material Material {
+					diffuseColor IS colorBase	   
+				}
+				texture ImageTexture { url "Imagenes/tripley_01.jpg" }
+			}
+		}
+
+	}
+}
+
+
+Muro { posicion 0 0 0 }
+Muro { posicion 1 2 0 }	  
+Muro { posicion -2 2 0  proporciones 2 2 0.1}
