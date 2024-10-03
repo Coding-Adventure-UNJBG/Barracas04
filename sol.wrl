@@ -1,0 +1,25 @@
+#VRML V2.0 utf8
+
+PROTO Sol [
+	field SFColor colorBase 1 1 0 # amarillo
+	field SFVec3f posicion 0 0 0  # por defecto en el origen
+	field SFFloat tamanio 3 # tamaño
+]
+{	  
+	Transform {
+		translation	IS posicion	children Shape {
+			geometry Sphere { radius IS tamanio}
+			appearance Appearance { 
+				material Material {
+					diffuseColor IS colorBase
+					#emissiveColor IS colorBase
+				}
+				texture ImageTexture { url "Imagenes/sol.jpg" }
+			}
+		}
+
+	}
+}
+
+
+Sol { }
