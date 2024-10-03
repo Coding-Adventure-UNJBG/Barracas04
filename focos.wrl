@@ -1,0 +1,60 @@
+#VRML V2.0 utf8
+
+
+
+PROTO Focos [
+	field SFVec3f posicion 0 0 0
+	field SFColor colorBase 0.5 0.5 0.5 #Color gris
+]
+{
+	PROTO Led [
+		field SFVec3f posicion 0 0 0
+	]
+	{
+		Transform {
+			translation	IS posicion	children Shape {
+				geometry Cylinder { radius 0.05 height 2 }
+			}
+		}
+	}
+
+	PROTO Laterales [
+		field SFVec3f posicion 0 0 0
+		field SFColor color 0.5 0.5 0.5 #Color gris
+	] 
+	{
+		Transform {
+			translation	IS posicion	children Shape {
+				geometry Box {size 0.2 0.03 0.17}
+				appearance Appearance {
+					material Material {
+						diffuseColor  IS color
+					}
+				}
+			}
+		}
+	}		
+
+	Transform {
+		translation	IS posicion
+		rotation 1 0 0 1.5708	  # Rotar para que mire abajo
+		children [
+			Shape { # Base
+				geometry Box {size 0.2 2 0.07}
+				appearance Appearance {
+					material Material {
+						diffuseColor  IS colorBase
+					}
+				}
+			}
+			Led	{ posicion  -0.051 0 0.085}
+			Led	{ posicion  0.051 0 0.085}
+
+			#Laterales {posicion 0 -1.017 0.04}
+			Laterales {posicion 0 1.015 0.05 color IS colorBase }
+			Laterales {posicion 0 -1.015 0.05 color IS colorBase }		
+		]
+	}
+}
+
+Focos {}
