@@ -1,0 +1,59 @@
+#VRML V2.0 utf8
+
+
+PROTO tomaCorriente [
+	field SFVec3f posicion 0 0 0 
+]
+{
+	PROTO tubo [
+		field SFVec3f posicion 0 0 0
+	]
+	{
+		Transform {
+			translation	IS posicion children Shape {
+				geometry Cylinder { radius 0.01 height 0.5}
+				appearance Appearance {
+					material Material {
+						diffuseColor 0.8 0.8 0.8
+					}
+				}
+			}
+		}
+	}
+
+	Transform {
+		translation	IS posicion
+		children [
+			Shape {
+				geometry Box { size 0.2 0.1 0.1}
+				appearance Appearance {
+					material Material {
+						diffuseColor 0.94 0.94 0.94
+					}
+				}
+			}
+
+			Transform {
+				translation	0 0 0.0505 
+				children [
+					Shape {
+						geometry Box { size 0.2 0.1 0}
+						appearance Appearance {
+							texture	ImageTexture {
+								url	"./tomaCorriente.jpeg"
+							}
+						}
+					}
+					
+				]
+			}
+
+
+			tubo {}
+			
+		]
+	}
+}
+
+
+tomaCorriente {}
