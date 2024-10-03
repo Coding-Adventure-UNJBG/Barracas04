@@ -1,0 +1,69 @@
+#VRML V2.0 utf8
+
+
+PROTO Pizarra [
+	field SFVec3f posicion 0 0 0
+	field SFColor colorMarco 0.9 0.9 0.85
+]
+{
+
+	PROTO BarraVertical [
+		field SFVec3f posicion 0 0 0 
+		field SFColor colorMarco 0.9 0.9 0.85
+	]
+	{
+		Transform {
+			translation IS posicion	children Shape {
+				geometry Box {size 0.1 2 0.1}
+				appearance Appearance {
+					material Material {
+						diffuseColor  IS colorMarco
+					}
+				}
+			}
+		}
+	}
+
+	PROTO BarraHorizontal [
+		field SFVec3f posicion 0 0 0 
+		field SFColor colorMarco 0.9 0.9 0.85
+	]
+	{
+		Transform {
+			translation IS posicion	children Shape {
+				geometry Box {size 3.7 0.1 0.1}
+				appearance Appearance {
+					material Material {
+						diffuseColor  IS colorMarco
+					}
+				}
+			}
+		}
+	}
+
+	Transform {
+		translation IS posicion
+		children [
+			Shape {
+				geometry Box {size 3.5 2 0.005}
+				appearance Appearance {
+					texture	ImageTexture {
+						url	"./pizarra.png"
+					}
+				}
+			}
+
+			BarraVertical {posicion -1.80 0 0 }
+			BarraVertical {posicion 1.80 0 0 }
+
+			BarraHorizontal	{posicion 0 1.05 0}
+			BarraHorizontal	{posicion 0 -1.05 0}
+
+		]
+	}
+
+
+}
+
+
+Pizarra {}
