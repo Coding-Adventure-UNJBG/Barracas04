@@ -2,266 +2,52 @@
 
 # INICIO DE MODELADO
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# luz de ambiente
+DirectionalLight {
+	#ambientIntensity 10
+	color 1 1 1
+	intensity 10
+	direction 0 -8 0
+}
+
+# suelo
+Transform {	
+	scale 5 5 5
+	translation 0 -1.3 0								  
+	children [
+		Shape {
+			geometry Box{ size 5 .1 5}
+			appearance Appearance{
+				material Material {diffuseColor 0.5, 0.24, 0.24 }
+			}
+		}
+	]
+}
+
+
+PROTO Muro [
+	field SFColor colorBase 1 1 0 # amarillo
+	field SFVec3f posicion 0 0 0  # por defecto en el origen	
+	field SFVec3f proporciones 1 1 0.1
+]
+{	  
+	Transform {
+		translation	IS posicion	children Shape {
+			geometry Box { size IS proporciones}
+			appearance Appearance { 
+				material Material {
+					diffuseColor IS colorBase	   
+				}
+				texture ImageTexture { url "Imagenes/tripley_01.jpg" }
+			}
+		}
+
+	}
+}
+
+
+
+			   
 
 
 # FIN  DE MODELADO
@@ -269,32 +55,45 @@
 # COLOCAR OBJETOS DE MUNDO
 
 
+# Muro 01
+Muro {posicion -10 1 -7 proporciones 2 5 0.1}
+Muro {posicion -8 1 -7 proporciones 2 5 0.1}
+Muro {posicion -6 1 -7 proporciones 2 5 0.1}
+Muro {posicion -4 1 -7 proporciones 2 5 0.1}
+Muro {posicion -2 1 -7 proporciones 2 5 0.1}
+Muro {posicion 0 1 -7 proporciones 2 5 0.1}
+Muro {posicion 2 1 -7 proporciones 2 5 0.1}
+Muro {posicion 4 1 -7 proporciones 2 5 0.1}
+Muro {posicion 6 1 -7 proporciones 2 5 0.1}	 
+Muro {posicion 8 1 -7 proporciones 2 5 0.1}
+Muro {posicion 10 1 -7 proporciones 2 5 0.1}
 
+# Muro 02
+Muro {posicion 11 1 -6 proporciones 0.1 5 2}
+Muro {posicion 11 1 -4 proporciones 0.1 5 2}
+Muro {posicion 11 1 -2 proporciones 0.1 5 2}
+Muro {posicion 11 1 0 proporciones 0.1 5 2}
+Muro {posicion 11 1 2 proporciones 0.1 5 2}
+Muro {posicion 11 1 4 proporciones 0.1 5 2}
 
+# Muro 03
+Muro {posicion -11 1 -6 proporciones 0.1 5 2}
+Muro {posicion -11 1 -4 proporciones 0.1 5 2}
+Muro {posicion -11 1 -2 proporciones 0.1 5 2}
+Muro {posicion -11 1 0 proporciones 0.1 5 2}
+Muro {posicion -11 1 2 proporciones 0.1 5 2}
+Muro {posicion -11 1 4 proporciones 0.1 5 2}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# Muro 04
+Muro {posicion -10 1 5 proporciones 2 5 0.1}
+Muro {posicion -8 1 5 proporciones 2 5 0.1}
+Muro {posicion -6 1 5 proporciones 2 5 0.1}
+Muro {posicion -4 1 5 proporciones 2 5 0.1}
+Muro {posicion -2 1 5 proporciones 2 5 0.1}
+Muro {posicion 0 1 5 proporciones 2 5 0.1}
+Muro {posicion 2 1 5 proporciones 2 5 0.1}
+Muro {posicion 4 1 5 proporciones 2 5 0.1}
+Muro {posicion 6 1 5 proporciones 2 5 0.1}	 
+Muro {posicion 8 1 5 proporciones 2 5 0.1}
+Muro {posicion 10 1 5 proporciones 2 5 0.1}
 
