@@ -1,0 +1,57 @@
+#VRML V2.0 utf8
+
+
+PROTO PanelTecho [
+	field SFVec3f posicion 0 0 0
+]
+{
+	PROTO Marco [
+		field SFVec3f posicion 0 0 0
+		field SFRotation rotacion 0 0 0 0
+		field SFVec3f dimensiones 2 0.05 0.1
+	]
+	{
+		Transform {
+			translation	IS posicion
+			rotation IS	rotacion
+			children [
+				Shape {
+					geometry Box { size IS dimensiones }
+					appearance Appearance {
+						texture	ImageTexture {
+							url	"./imagenes/tripley_01.jpg"
+						}
+					}
+				}
+			]
+		}
+	}
+
+	Transform {
+		translation	IS posicion	
+		#rotation 1 0 0 1.5708
+		children [
+			Shape {
+				geometry Box { size 2 2 0.1 }
+				appearance Appearance {
+					texture	ImageTexture {
+						url	"./imagenes/tecnopor.jpg"
+					}
+				}
+			}
+
+			Marco { posicion 0 -1.025 0}
+			Marco { posicion 0 1.025 0}
+			Marco { posicion -1.025 0 0 dimensiones 2.1 0.05 0.1 rotacion 0 0 1 1.5708}
+			Marco { posicion 1.025 0 0 dimensiones 2.1 0.05 0.1 rotacion 0 0 1 1.5708}
+		]
+		
+	}
+
+}
+
+PanelTecho { posicion 0 0 0 }
+PanelTecho { posicion 2.1 0 0 }
+PanelTecho { posicion 4.2 0 0 }
+PanelTecho { posicion 0 2.1 0 }
+PanelTecho { posicion 2.1 2.1 0 }

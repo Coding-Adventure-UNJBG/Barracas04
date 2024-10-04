@@ -1,0 +1,170 @@
+#VRML V2.0 utf8
+
+PROTO Mueble [
+    field SFVec3f posicion 0 0 0
+]
+{
+    PROTO Asiento [
+        field SFVec3f posicion 0 0 0
+        field SFVec3f tamaño 0.6 0.02 0.4
+    ]
+    {
+        Transform {
+            translation IS posicion
+            children [
+                Shape {
+                    geometry Box { size IS tamaño }
+                    appearance Appearance {
+                        material Material {
+                            diffuseColor 0.8 0.8 0.8  # Color gris para el asiento
+                        }
+                        texture ImageTexture { url "madera_silla.jpeg" }  # Textura aplicada
+                    }
+                }
+            ]
+        }
+    }
+
+    PROTO Respaldo [
+        field SFVec3f posicion 0 0 0
+        field SFVec3f tamaño 0.6 0.02 0.3
+    ] 
+    {
+        Transform {
+            translation IS posicion
+            rotation 1 0 0 1.57
+            children [
+                Shape {
+                    geometry Box { size IS tamaño }
+                    appearance Appearance {
+                        material Material {
+                            diffuseColor 0.8 0.8 0.8  # Color gris para el respaldo
+                        }
+                        texture ImageTexture { url "madera_silla.jpeg" }  # Textura aplicada
+                    }
+                }
+            ]
+        }
+    }
+
+    PROTO Superficie [
+        field SFVec3f posicion 0 0 0
+        field SFVec3f tamaño 0.6 0.02 0.4
+    ] 
+    {
+        Transform {
+            translation IS posicion
+            children [
+                Shape {
+                    geometry Box { size IS tamaño }
+                    appearance Appearance {
+                        material Material {
+                            diffuseColor 0.8 0.8 0.8  # Color gris para la superficie
+                        }
+                    }
+                }
+            ]
+        }
+    }
+
+    PROTO EstanteInferior [
+        field SFVec3f posicion 0 0 0
+        field SFVec3f tamaño 0.5 0.02 0.3
+    ] 
+    {
+        Transform {
+            translation IS posicion
+            children [
+                Shape {
+                    geometry Box { size IS tamaño }
+                    appearance Appearance {
+                        material Material {
+                            diffuseColor 0.8 0.8 0.8  # Color gris para el estante inferior
+                        }
+                    }
+                }
+            ]
+        }
+    }
+
+    PROTO Pata [
+        field SFVec3f posicion 0 0 0
+        field SFFloat altura 0.8
+        field SFFloat radio 0.02
+        field SFRotation rotacion 0 0 0 0  # Rotación personalizada
+    ] 
+    {
+        Transform {
+            translation IS posicion
+            rotation IS rotacion  # Aplicar la rotación
+            children [
+                Shape {
+                    geometry Cylinder { height IS altura radius IS radio }
+                    appearance Appearance {
+                        material Material {
+                            diffuseColor 0.5 0 0  # Color rojo oscuro para las patas
+                        }
+                    }
+                }
+            ]
+        }
+    }
+
+    PROTO Conector [
+        field SFVec3f posicion 0 0 0
+        field SFFloat altura 0.7
+        field SFFloat radio 0.02
+        field SFRotation rotacion 0 0 0 0  # Rotación personalizada
+    ] 
+    {
+        Transform {
+            translation IS posicion
+            rotation IS rotacion  # Aplicar la rotación
+            children [
+                Shape {
+                    geometry Cylinder { height IS altura radius IS radio }
+                    appearance Appearance {
+                        material Material {
+                            diffuseColor 0.5 0 0  # Color rojo oscuro para los conectores
+                        }
+                    }
+                }
+            ]
+        }
+    }
+
+    Transform {
+        translation IS posicion
+        children [
+            # Asiento
+            Asiento { posicion 0 0.4 -0.7 tamaño 0.6 0.02 0.4 }
+
+            # Respaldo
+            Respaldo { posicion 0 0.7 -0.9 tamaño 0.6 0.02 0.3 }
+
+            # Superficie del escritorio
+            Superficie { posicion 0 0.7 -0.23 tamaño 0.6 0.02 0.4 }
+
+            # Estante inferior del escritorio
+            EstanteInferior { posicion 0 0.55 -0.26 tamaño 0.5 0.02 0.3 }
+
+            # Patas metálicas con rotación
+            Pata { posicion -0.3 0.2 -0.5 altura 0.42 radio 0.02 rotacion 0 0 1 0 }
+            Pata { posicion -0.3 0.4 -0.9 altura 0.8 radio 0.02 rotacion 0 0 1 0 }
+            Pata { posicion 0.3 0.2 -0.5 altura 0.42 radio 0.02 rotacion 0 0 1 0 }
+            Pata { posicion 0.3 0.4 -0.9 altura 0.8 radio 0.02 rotacion 0 0 1 0 }
+
+            # Conectores metálicos con rotación
+            Conector { posicion -0.3 0.35 -0.2 altura 0.7 radio 0.02 rotacion 0 0 0 1.57 }
+            Conector { posicion 0.3 0.35 -0.2 altura 0.7 radio 0.02 rotacion 0 0 0 1.57 }
+            Conector { posicion -0.3 0 -0.5 altura 0.9 radio 0.02 rotacion 1 0 0 1.57 }
+            Conector { posicion 0.3 0 -0.5 altura 0.9 radio 0.02 rotacion 1 0 0 1.57 }
+            Conector { posicion 0 0 -0.9 altura 0.6 radio 0.02 rotacion 0 0 1 1.57 }
+            Conector { posicion 0 0 -0.2 altura 0.6 radio 0.02 rotacion 0 0 1 1.57 }
+        ]
+    }
+}
+
+Mueble { posicion 0 0 0 }
+Mueble { posicion 1 0 0 }
+Mueble { posicion -1 0 0 }
