@@ -1,0 +1,73 @@
+#VRML V2.0 utf8
+
+
+PROTO Escritorio [
+	field SFVec3f posicion 0 0 0
+]
+{
+
+	PROTO Tabla [
+		field SFVec3f posicion 0 0 0
+		field SFVec3f dimensiones 1.5 0.02 0.6
+	]
+	{
+		Transform {
+			translation	IS posicion children Shape {
+				geometry Box { size IS dimensiones }
+				appearance Appearance {
+					texture	ImageTexture {
+						url	"./imagenes/tripley_01.jpg"
+					}
+				}
+			}
+		}
+	}
+
+	PROTO Palos [
+		field SFVec3f posicion 0 0 0
+		field SFVec3f dimensiones 0.03 0.8 0.03
+	]
+	{
+		Transform {
+			translation	IS posicion	children Shape {
+				geometry Box { size IS dimensiones }
+				appearance Appearance {
+					material Material {
+						diffuseColor 0 0 0
+					}
+				}
+			}
+		}
+	}
+
+	PROTO Apoyo [
+		field SFVec3f posicion 0 0 0
+	]
+	{
+		Transform {
+			translation	IS posicion	children Shape {
+				geometry Box { size 2 3 0.1 }
+				appearance Appearance {
+					material Material {
+						diffuseColor 1 0 0
+					}
+				}
+			}
+		}
+	}
+
+
+	
+	
+	Transform {
+		translation	IS posicion
+		children [
+			Tabla {}
+			Palos { posicion 0.6 -0.4 0 }
+			Palos { posicion -0.6 -0.4 0 }
+			#Apoyo {}
+		]
+	}
+}
+
+Escritorio {}

@@ -14,7 +14,7 @@ PROTO Sol [
 					diffuseColor IS colorBase
 					#emissiveColor IS colorBase
 				}
-				texture ImageTexture { url "Imagenes/sol.jpg" }
+				texture ImageTexture { url "./imagenes/sol.jpg" }
 			}
 		}
 

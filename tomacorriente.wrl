@@ -1,7 +1,7 @@
 #VRML V2.0 utf8
 
 
-PROTO tomaCorriente [
+PROTO TomaCorriente [
 	field SFVec3f posicion 0 0 0 
 ]
 {
@@ -40,7 +40,7 @@ PROTO tomaCorriente [
 						geometry Box { size 0.2 0.1 0}
 						appearance Appearance {
 							texture	ImageTexture {
-								url	"./tomaCorriente.jpeg"
+								url	"./imagenes/tomaCorriente.jpeg"
 							}
 						}
 					}
@@ -56,4 +56,4 @@ PROTO tomaCorriente [
 }
 
 
-tomaCorriente {}
+TomaCorriente {}

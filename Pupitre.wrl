@@ -1,6 +1,6 @@
 #VRML V2.0 utf8
 
-PROTO Mueble [
+PROTO Pupitre [
     field SFVec3f posicion 0 0 0
 ]
 {
@@ -18,7 +18,7 @@ PROTO Mueble [
                         material Material {
                             diffuseColor 0.8 0.8 0.8  # Color gris para el asiento
                         }
-                        texture ImageTexture { url "madera_silla.jpeg" }  # Textura aplicada
+                        texture ImageTexture { url "./imagenes/madera_silla.jpeg" }  # Textura aplicada
                     }
                 }
             ]
@@ -40,7 +40,7 @@ PROTO Mueble [
                         material Material {
                             diffuseColor 0.8 0.8 0.8  # Color gris para el respaldo
                         }
-                        texture ImageTexture { url "madera_silla.jpeg" }  # Textura aplicada
+                        texture ImageTexture { url "./imagenes/madera_silla.jpeg" }  # Textura aplicada
                     }
                 }
             ]
@@ -165,6 +165,6 @@ PROTO Mueble [
     }
 }
 
-Mueble { posicion 0 0 0 }
-Mueble { posicion 1 0 0 }
-Mueble { posicion -1 0 0 }
+Pupitre { posicion 0 0 0 }
+Pupitre { posicion 1 0 0 }
+Pupitre { posicion -1 0 0 }

@@ -13,7 +13,7 @@ PROTO Muro [
 				material Material {
 					diffuseColor IS colorBase	   
 				}
-				texture ImageTexture { url "Imagenes/tripley_01.jpg" }
+				texture ImageTexture { url "./imagenes/tripley_01.jpg" }
 			}
 		}
 

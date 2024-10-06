@@ -48,7 +48,7 @@ PROTO Pizarra [
 				geometry Box {size 3.5 2 0.005}
 				appearance Appearance {
 					texture	ImageTexture {
-						url	"./pizarra.png"
+						url	"./imagenes/pizarra.png"
 					}
 				}
 			}

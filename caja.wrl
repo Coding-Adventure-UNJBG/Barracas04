@@ -1,7 +1,7 @@
 #VRML V2.0 utf8
 
 
-PROTO caja [
+PROTO Caja [
 	field SFVec3f posicion 0 0 0
 	field SFRotation rotacion 0 0 0 0 # x y z radianes
 ]
@@ -23,6 +23,6 @@ PROTO caja [
 }
 
 
-caja { posicion  0 0 0 }
-caja { posicion  3 0 0 rotacion 0 1 0 1.97}
-caja { posicion  6 0 0 rotacion 0 0 1 0.69}
+Caja { posicion  0 0 0 }
+Caja { posicion  3 0 0 rotacion 0 1 0 1.97}
+Caja { posicion  6 0 0 rotacion 0 0 1 0.69}
