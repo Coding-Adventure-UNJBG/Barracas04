@@ -4,17 +4,22 @@
 PROTO Caja [
 	field SFVec3f posicion 0 0 0
 	field SFRotation rotacion 0 0 0 0 # x y z radianes
+	field SFVec3f escala 1.0 1.0 1.0
 ]
 {
 	Transform {
 		translation	IS posicion
 		rotation IS	rotacion
+		scale IS escala
 		children [
 			Shape {
-				geometry Box {size 2 2 2.5}
+				geometry Box {size 0.6 0.6 1}
 				appearance Appearance {
 					material Material {
 						diffuseColor 0.7 0.5 0.3 
+					}
+					texture	ImageTexture {
+						url	"./imagenes/caja_carton.jpg"
 					}
 				}
 			}

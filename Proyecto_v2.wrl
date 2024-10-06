@@ -2,11 +2,281 @@
 
 # MODELADO DE BARRACA 04
 
-# IMPORTAR PROTOTIPOS
+## IMPORTAR PROTOTIPOS
+
+EXTERNPROTO	Caja [
+	field SFVec3f posicion
+	field SFRotation rotacion
+	field SFVec3f escala
+] "Caja.wrl#Caja"
+
+EXTERNPROTO	Escritorio [
+	field SFVec3f posicion
+	field SFVec3f escala
+] "Escritorio.wrl#Escritorio"
+	
+EXTERNPROTO	Foco [
+
+] "Foco.wrl#Foco"
+
+EXTERNPROTO	Muro [
+
+] "Muro.wrl#Muro"
+
+EXTERNPROTO	PanelTecho [
+] "PanelTecho.wrl#PanelTecho"
+
+EXTERNPROTO	Pizarra [
+] "Pizarra.wrl#Pizarra"
 
 EXTERNPROTO	Pupitre [
 	field SFVec3f posicion
+	field SFVec3f escala
+	field SFRotation rotacion
 ] "Pupitre.wrl#Pupitre"
 
+EXTERNPROTO	TomaCorriente [
+] "TomaCorriente.wrl#TomaCorriente"
 
-Pupitre {}
+EXTERNPROTO	Piso [
+	field SFVec3f posicion
+	field SFVec3f tamanio
+] "Piso.wrl#Piso"
+
+## ARMADO DEL PROYECTO
+
+# Luz de ambiente
+DirectionalLight {
+	#ambientIntensity 10
+	color 1 1 1
+	intensity 10
+	direction 0 -8 0
+}
+
+# Punto de vista desde el punto de origen
+Viewpoint {
+	# position 0 1 0
+	position 0 10 60
+	orientation 0 0 0 0
+	description "Punto de Vista Inicial"
+}
+
+Viewpoint {
+	# position 0 1 0
+	position 0 4 -8
+	orientation 0 0 0 0
+	description "Punto de Vista Cajas"
+}
+
+# Suelo del mundo
+Piso { tamanio 12 0.05 22 posicion 1.3 0 -0.5 }
+#Piso { tamanio 2 0.05 4 }
+
+# Seccion de las cajas
+Transform {
+	translation	4.7 0 -7
+	children [
+		Pupitre { posicion 1.7 0.0625 -2 escala 1.5 1.5 1.5 rotacion 0 1 0 -3.1416 }
+		Caja { posicion 1.7 1.35 -1.68 escala 1 0.75 1.2 rotacion 0 1 0 1.5708 }  # Caja 1
+		Caja { posicion 1.65 1.8 -1.65 escala 1 0.75 1.2 rotacion 0 1 0 1.6708 }  # Caja 2
+
+		# Cajas desde piso
+		Caja { posicion 1.7 0.2275 -2.3 escala 1 0.75 1.2 rotacion 0 1 0 1.5708 }  # Caja 1
+		Caja { posicion 1.75 0.6775 -2.3 escala 1 0.75 1.2 rotacion 0 1 0 1.5708 }  # Caja 2
+		Caja { posicion 1.7 1.1275 -2.3 escala 1 0.75 1.2 rotacion 0 1 0 1.5708 }  # Caja 3
+		Caja { posicion 1.78 1.5775 -2.3 escala 1 0.75 1.2 rotacion 0 1 0 1.5708 }  # Caja 4
+		Caja { posicion 1.75 2.0275 -2.3 escala 1 0.75 1.2 rotacion 0 1 0 1.5708 }  # Caja 5
+		Caja { posicion 1.7 2.4775 -2.3 escala 1 0.75 1.2 rotacion 0 1 0 1.5708 }  # Caja 6
+		Caja { posicion 1.7 2.9275 -2.2 escala 1 0.75 1.2 rotacion 0 1 0 1.5708 }  # Caja 7
+		
+		# Cajas chicas desde piso 
+		Caja { posicion 1.7 0.2275 -2.9 escala 1 0.75 1.2 rotacion 0 1 0 1.5708 }  # Base
+		Caja { posicion 1.65 0.5427 -2.9 escala 1 0.3 1.2 rotacion 0 1 0 1.5708 }  # Caja 1
+		Caja { posicion 1.66 0.7227 -2.9 escala 1 0.3 1.2 rotacion 0 1 0 1.5708 }  # Caja 2
+		Caja { posicion 1.67 0.9027 -2.9 escala 1 0.3 1.2 rotacion 0 1 0 1.5708 }  # Caja 3
+		Caja { posicion 1.66 1.0827 -2.9 escala 1 0.3 1.2 rotacion 0 1 0 1.5708 }  # Caja 4
+		Caja { posicion 1.68 1.2627 -2.9 escala 1 0.3 1.2 rotacion 0 1 0 1.5708 }  # Caja 5
+		Caja { posicion 1.69 1.4427 -2.9 escala 1 0.3 1.2 rotacion 0 1 0 1.5708 }  # Caja 6
+
+
+		# Cajas desde piso
+		Caja { posicion 1.7 0.2275 -3.5 escala 1 0.75 1.2 rotacion 0 1 0 1.5708 }  # Caja 1
+		Caja { posicion 1.75 0.6775 -3.5 escala 1 0.75 1.2 rotacion 0 1 0 1.5708 }  # Caja 2
+		Caja { posicion 1.7 1.1275 -3.5 escala 1 0.75 1.2 rotacion 0 1 0 1.5708 }  # Caja 3
+		Caja { posicion 1.78 1.5775 -3.5 escala 1 0.75 1.2 rotacion 0 1 0 1.5708 }  # Caja 4
+		Caja { posicion 1.75 2.0275 -3.5 escala 1 0.75 1.2 rotacion 0 1 0 1.5708 }  # Caja 5
+
+		# Cajas desde piso
+		Caja { posicion 1.7 0.2275 -4.1 escala 1 0.75 1.2 rotacion 0 1 0 1.5708 }  # Caja 1
+		Caja { posicion 1.75 0.6775 -4.1 escala 1 0.75 1.2 rotacion 0 1 0 1.5708 }  # Caja 2
+		Caja { posicion 1.7 1.1275 -4.1 escala 1 0.75 1.2 rotacion 0 1 0 1.5708 }  # Caja 3
+		Caja { posicion 1.78 1.5775 -4.1 escala 1 0.75 1.2 rotacion 0 1 0 1.5708 }  # Caja 4
+		#Caja { posicion 1.75 2.0275 -4.1 escala 1 0.75 1.2 rotacion 0 1 0 1.5708 }  # Caja 5
+
+
+		# Pupitres juntos
+		Transform {
+			translation	0 0 -2.6
+			rotation 0 1 0 3.1416
+			center 0.5 0.0625 -1.67
+			children [
+				Pupitre { posicion 0.5 1.7465 -1.67 escala 1.5 1.5 1.5 rotacion 0 0 1 -3.1416 }
+				Pupitre { posicion 0.5 0.0625 -3 escala 1.5 1.5 1.5 rotacion 0 1 0 -3.1416 }
+			]
+		}
+
+		# Pupitres juntos
+		Transform {
+			translation	-0.6 0 -2.2
+			rotation 0 1 0 1.5708
+			center 0.5 0.0625 -1.67
+			children [
+				Pupitre { posicion 0.5 1.7465 -1.67 escala 1.5 1.5 1.5 rotacion 0 0 1 -3.1416 }
+				Pupitre { posicion 0.5 0.0625 -3 escala 1.5 1.5 1.5 rotacion 0 1 0 -3.1416 }
+			]
+		}
+
+		Pupitre { posicion -0.7 0.0625 -1.9 escala 1.5 1.5 1.5 rotacion 0 1 0 0 }
+		Caja { posicion -0.7 1.35 -2.2 escala 1 0.75 1.2 rotacion 0 1 0 1.5708 }  # Caja 1
+		Caja { posicion -0.65 1.8 -2.2 escala 1 0.75 1.2 rotacion 0 1 0 1.4708 }  # Caja 2
+		Caja { posicion -0.69 2.25 -2.2 escala 1 0.75 1.2 rotacion 0 1 0 1.6708 }  # Caja 3
+
+
+
+	]
+
+}
+
+# Pupitres				
+Transform {
+	translation	3 0 -7
+	children [
+		Transform {		# Fila 1
+    		translation 0 0 0
+    		children [
+	
+				# Escritorio de docente
+				Escritorio { posicion 1.3 1.225 3.2 escala 1.5 1.5 1.5}
+				Pupitre { posicion 2.5 0.0625 4.5 escala 1.5 1.5 1.5 rotacion 0 1 0 -1.5708}
+
+
+				# Filas de carpeta
+				Pupitre { posicion -0.4 0.0625 -3 escala 1.5 1.5 1.5 }
+				Pupitre { posicion -0.4 0.0625 -2 escala 1.5 1.5 1.5 }
+
+                Pupitre { posicion 0 0.0625 0 escala 1.5 1.5 1.5 }
+                Pupitre { posicion 0 0.0625 1 escala 1.5 1.5 1.5 }
+
+                Pupitre { posicion 0 0.0625 3 escala 1.5 1.5 1.5 }
+                Pupitre { posicion 0 0.0625 4 escala 1.5 1.5 1.5 }
+
+                Pupitre { posicion -1.5 0.0625 6 escala 1.5 1.5 1.5 rotacion 0 1 0 -1.5708}
+				#Pupitre { posicion 0 0.0625 6 escala 1.5 1.5 1.5 }
+                Pupitre { posicion 0 0.0625 7 escala 1.5 1.5 1.5 }
+
+                Pupitre { posicion 0 0.0625 9 escala 1.5 1.5 1.5 }
+                Pupitre { posicion 0 0.0625 10 escala 1.5 1.5 1.5 }
+
+                Pupitre { posicion 0 0.0625 12 escala 1.5 1.5 1.5 }
+                #Pupitre { posicion 0 0.0625 13 escala 1.5 1.5 1.5 }
+
+                Pupitre { posicion 0 0.0625 15 escala 1.5 1.5 1.5 }
+                Pupitre { posicion 0 0.0625 16 escala 1.5 1.5 1.5 }	
+
+    		]
+		}
+
+		Transform {		# Fila 2
+    		translation -1.5 0 0
+    		children [
+
+				Pupitre { posicion -0.9 0.0625 -1.5 escala 1.5 1.5 1.5 rotacion 0 1 0 1.42173}
+
+                Pupitre { posicion 0 0.0625 0 escala 1.5 1.5 1.5 }
+                Pupitre { posicion 0 0.0625 1 escala 1.5 1.5 1.5 }
+
+                Pupitre { posicion 0 0.0625 3 escala 1.5 1.5 1.5 }
+                Pupitre { posicion 0 0.0625 4 escala 1.5 1.5 1.5 }
+
+                Pupitre { posicion 0 0.0625 6 escala 1.5 1.5 1.5 }
+                Pupitre { posicion 0 0.0625 7 escala 1.5 1.5 1.5 }
+
+                Pupitre { posicion 0 0.0625 9 escala 1.5 1.5 1.5 }
+                Pupitre { posicion 0 0.0625 10 escala 1.5 1.5 1.5 }
+
+                Pupitre { posicion 0 0.0625 12 escala 1.5 1.5 1.5 }
+                Pupitre { posicion 0 0.0625 13 escala 1.5 1.5 1.5 }
+
+                Pupitre { posicion 0 0.0625 15 escala 1.5 1.5 1.5 }
+                Pupitre { posicion 0 0.0625 16 escala 1.5 1.5 1.5 }	
+    		]
+		}
+
+		Transform {		# Fila 3
+    		translation -3 0 0
+    		children [
+
+				Pupitre { posicion -1 0.0625 -3.8 escala 1.5 1.5 1.5 rotacion 0 1 0 3.1416}
+                #Pupitre { posicion 0 0.0625 0 escala 1.5 1.5 1.5 }
+                #Pupitre { posicion 0 0.0625 1 escala 1.5 1.5 1.5 }
+
+                #Pupitre { posicion 0 0.0625 3 escala 1.5 1.5 1.5 }
+                #Pupitre { posicion 0 0.0625 4 escala 1.5 1.5 1.5 }
+
+                Pupitre { posicion 0 0.0625 6 escala 1.5 1.5 1.5 }
+                Pupitre { posicion 0 0.0625 7 escala 1.5 1.5 1.5 }
+
+                Pupitre { posicion 0 0.0625 9 escala 1.5 1.5 1.5 }
+                Pupitre { posicion 0 0.0625 10 escala 1.5 1.5 1.5 }
+
+                Pupitre { posicion 0 0.0625 12 escala 1.5 1.5 1.5 }
+                Pupitre { posicion 0 0.0625 13 escala 1.5 1.5 1.5 }
+
+                Pupitre { posicion 0 0.0625 15 escala 1.5 1.5 1.5 }
+                Pupitre { posicion 0 0.0625 16 escala 1.5 1.5 1.5 }	
+    		]
+		}
+
+		Transform {		# Fila 4
+    		translation -4.5 0 0
+    		children [
+
+				# El grupito de al fondo
+				Pupitre { posicion -0.95 0.0625 -1.7 escala 1.5 1.5 1.5 }
+				Pupitre { posicion -0.73 0.0625 -0.7 escala 1.5 1.5 1.5 }
+				Pupitre { posicion -0.95 0.0625 0.3 escala 1.5 1.5 1.5 }
+
+					# Enchufe por aqui
+
+				Pupitre { posicion -0.8 0.0625 1.5 escala 1.5 1.5 1.5 }
+				Pupitre { posicion -0.8 0.0625 2.5 escala 1.5 1.5 1.5 }
+				Pupitre { posicion -1 0.0625 3.5 escala 1.5 1.5 1.5 }
+
+                #Pupitre { posicion 0 0.0625 0 escala 1.5 1.5 1.5 }
+                #Pupitre { posicion 0 0.0625 1 escala 1.5 1.5 1.5 }
+
+                #Pupitre { posicion 0 0.0625 3 escala 1.5 1.5 1.5 }
+                #Pupitre { posicion 0 0.0625 4 escala 1.5 1.5 1.5 }
+
+                Pupitre { posicion 0 0.0625 6 escala 1.5 1.5 1.5 }
+                Pupitre { posicion 0 0.0625 7 escala 1.5 1.5 1.5 }
+
+                Pupitre { posicion 0 0.0625 9 escala 1.5 1.5 1.5 }
+                Pupitre { posicion 0 0.0625 10 escala 1.5 1.5 1.5 }
+
+                Pupitre { posicion 0 0.0625 12 escala 1.5 1.5 1.5 }
+                Pupitre { posicion 0 0.0625 13 escala 1.5 1.5 1.5 }
+
+                Pupitre { posicion 0 0.0625 15 escala 1.5 1.5 1.5 }
+                Pupitre { posicion 0 0.0625 16 escala 1.5 1.5 1.5 }	
+    		]
+		}
+
+
+	]
+}
+
+
+#Escritorio { posicion 4 1.225 -3.5 escala 1.5 1.5 1.5}
+
+#Caja { posicion 0 0.475 0  escala 1.5 1.5 1.5 } # En el piso

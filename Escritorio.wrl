@@ -3,6 +3,8 @@
 
 PROTO Escritorio [
 	field SFVec3f posicion 0 0 0
+	field SFVec3f escala 1 1 1
+	field SFRotation rotacion 0 1 0 1.5708
 ]
 {
 
@@ -23,17 +25,18 @@ PROTO Escritorio [
 		}
 	}
 
-	PROTO Palos [
+	PROTO Palo [
 		field SFVec3f posicion 0 0 0
-		field SFVec3f dimensiones 0.03 0.8 0.03
+		field SFVec3f tamanio 0.03 0.8 0.03
 	]
 	{
 		Transform {
 			translation	IS posicion	children Shape {
-				geometry Box { size IS dimensiones }
+				geometry Box { size IS tamanio }
 				appearance Appearance {
 					material Material {
-						diffuseColor 0 0 0
+						#diffuseColor 0.447 0.380 0.341
+						diffuseColor 0.451, 0.439, 0.404
 					}
 				}
 			}
@@ -42,14 +45,18 @@ PROTO Escritorio [
 
 	PROTO Apoyo [
 		field SFVec3f posicion 0 0 0
+		field SFVec3f tamanio 0.5 0.6 0.02
+		field SFRotation rotacion 0 0 0 0
 	]
 	{
 		Transform {
-			translation	IS posicion	children Shape {
-				geometry Box { size 2 3 0.1 }
+			translation	IS posicion	
+			rotation IS	rotacion
+			children Shape {
+				geometry Box { size IS tamanio }
 				appearance Appearance {
 					material Material {
-						diffuseColor 1 0 0
+						diffuseColor 0.451, 0.439, 0.404
 					}
 				}
 			}
@@ -61,11 +68,26 @@ PROTO Escritorio [
 	
 	Transform {
 		translation	IS posicion
+		rotation IS	rotacion
+		scale IS escala
 		children [
-			Tabla {}
-			Palos { posicion 0.6 -0.4 0 }
-			Palos { posicion -0.6 -0.4 0 }
-			#Apoyo {}
+			Tabla { posicion 0 0.01 0}
+
+			Palo { posicion -0.6 -0.4 -0.25 }
+			Palo { posicion -0.6 -0.4 0.25 }
+			Apoyo { posicion -0.575 -0.3 0 rotacion 0 1 0 1.5708 }
+
+			Palo { posicion 0.6 -0.4 -0.25 }
+			Palo { posicion 0.6 -0.4 0.25 }
+			Apoyo { posicion 0.575 -0.3 0 rotacion 0 1 0 1.5708 }
+
+			Palo { posicion -0.57 -0.3 -0.28 tamanio 0.03 0.6 0.03 }
+			Apoyo { posicion 0.36 -0.3 -0.275 tamanio 0.45 0.6 0.02 }
+			Apoyo { posicion -0.2 -0.3 -0.255 tamanio 0.75 0.6 0.02 }
+			#Apoyo { posicion 0.75 -0.3 -0.285 tamanio 0.45 0.6 0.02 }
+
+			
+			
 		]
 	}
 }

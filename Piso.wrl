@@ -1,0 +1,27 @@
+#VRML V2.0 utf8
+
+PROTO Piso [
+	field SFVec3f posicion 0 0 0
+	field SFVec3f tamanio 20 0.05 40
+]
+{
+	Transform {
+		translation	IS posicion
+		children [
+			Shape {
+				geometry Box {size IS tamanio }
+				appearance Appearance {
+					material Material {
+						#diffuseColor 0.4 0.2 0.2 
+						diffuseColor 0.3 0.15 0.15
+						#diffuseColor 0.25 0.1 0.1
+						#diffuseColor 0 1 0 
+					}
+				}
+			}
+		]
+	}
+}
+
+
+Piso {}
