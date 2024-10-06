@@ -1,25 +1,26 @@
 #VRML V2.0 utf8
 
 PROTO Ventana [
-    field SFVec3f size 1 1 0.1       # Tamaño de la ventana
-    field SFFloat transparency 0.5   # Transparencia (valor entre 0 y 1)
+    field SFVec3f escala 1 1 0.1       # Tamaño de la ventana
+    field SFFloat transparencia 0.5   # Transparencia (valor entre 0 y 1)
 	field SFVec3f posicion 0 0 0
+	field SFVec3f tamanio 1 1 0.1
 ] {
     Transform {
-        scale IS size
+        scale IS escala
 		translation	IS posicion
         children [
             Shape {
                 appearance Appearance {
                     material Material {
-                        transparency IS transparency
+                        transparency IS transparencia
                     }
                 }
-                geometry Box { size 1 1 0.1 }
+                geometry Box { size IS tamanio }
             }
         ]
     }
 }
 
 
-Ventana	{ size 0.5 1 0.05}
+Ventana	{ escala 0.5 1 0.05}

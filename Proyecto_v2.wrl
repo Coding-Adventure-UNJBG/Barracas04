@@ -43,6 +43,11 @@ EXTERNPROTO	Piso [
 	field SFVec3f tamanio
 ] "Piso.wrl#Piso"
 
+EXTERNPROTO	ParedesBarraca [
+	field SFVec3f posicion
+	exposedField MFString aula
+] "ParedesBarraca.wrl#ParedesBarraca"
+
 ## ARMADO DEL PROYECTO
 
 # Luz de ambiente
@@ -71,10 +76,11 @@ Viewpoint {
 # Suelo del mundo
 Piso { tamanio 12 0.05 22 posicion 1.3 0 -0.5 }
 #Piso { tamanio 2 0.05 4 }
+ParedesBarraca { aula "A-04"}
 
 # Seccion de las cajas
 Transform {
-	translation	4.7 0 -7
+	translation	4.8 0 -7
 	children [
 		Pupitre { posicion 1.7 0.0625 -2 escala 1.5 1.5 1.5 rotacion 0 1 0 -3.1416 }
 		Caja { posicion 1.7 1.35 -1.68 escala 1 0.75 1.2 rotacion 0 1 0 1.5708 }  # Caja 1
@@ -151,16 +157,18 @@ Transform {
 Transform {
 	translation	3 0 -7
 	children [
-		Transform {		# Fila 1
-    		translation 0 0 0
-    		children [
-	
-				# Escritorio de docente
+
+		Transform {		# Escritorio de docente	
+			translation	0 0 0
+			children [	   
 				Escritorio { posicion 1.3 1.225 3.2 escala 1.5 1.5 1.5}
 				Pupitre { posicion 2.5 0.0625 4.5 escala 1.5 1.5 1.5 rotacion 0 1 0 -1.5708}
+			]
+		}
 
-
-				# Filas de carpeta
+		Transform {		# Fila 1
+    		translation 0.3 0 0
+    		children [
 				Pupitre { posicion -0.4 0.0625 -3 escala 1.5 1.5 1.5 }
 				Pupitre { posicion -0.4 0.0625 -2 escala 1.5 1.5 1.5 }
 
@@ -187,7 +195,7 @@ Transform {
 		}
 
 		Transform {		# Fila 2
-    		translation -1.5 0 0
+    		translation -1.2 0 0
     		children [
 
 				Pupitre { posicion -0.9 0.0625 -1.5 escala 1.5 1.5 1.5 rotacion 0 1 0 1.42173}
@@ -213,7 +221,7 @@ Transform {
 		}
 
 		Transform {		# Fila 3
-    		translation -3 0 0
+    		translation -2.7 0 0
     		children [
 
 				Pupitre { posicion -1 0.0625 -3.8 escala 1.5 1.5 1.5 rotacion 0 1 0 3.1416}
@@ -238,19 +246,24 @@ Transform {
 		}
 
 		Transform {		# Fila 4
-    		translation -4.5 0 0
+    		translation -4.2 0 0
     		children [
 
 				# El grupito de al fondo
-				Pupitre { posicion -0.95 0.0625 -1.7 escala 1.5 1.5 1.5 }
-				Pupitre { posicion -0.73 0.0625 -0.7 escala 1.5 1.5 1.5 }
-				Pupitre { posicion -0.95 0.0625 0.3 escala 1.5 1.5 1.5 }
+				Transform {
+					translation	-0.5 0 0
+					children [
+						Pupitre { posicion -0.95 0.0625 -1.7 escala 1.5 1.5 1.5 }
+						Pupitre { posicion -0.73 0.0625 -0.7 escala 1.5 1.5 1.5 }
+						Pupitre { posicion -0.95 0.0625 0.3 escala 1.5 1.5 1.5 }
+						
+						# Enchufe por aqui
 
-					# Enchufe por aqui
-
-				Pupitre { posicion -0.8 0.0625 1.5 escala 1.5 1.5 1.5 }
-				Pupitre { posicion -0.8 0.0625 2.5 escala 1.5 1.5 1.5 }
-				Pupitre { posicion -1 0.0625 3.5 escala 1.5 1.5 1.5 }
+						Pupitre { posicion -0.8 0.0625 1.5 escala 1.5 1.5 1.5 }
+						Pupitre { posicion -0.8 0.0625 2.5 escala 1.5 1.5 1.5 }
+						Pupitre { posicion -1 0.0625 3.5 escala 1.5 1.5 1.5 }
+					]
+				}
 
                 #Pupitre { posicion 0 0.0625 0 escala 1.5 1.5 1.5 }
                 #Pupitre { posicion 0 0.0625 1 escala 1.5 1.5 1.5 }
@@ -275,6 +288,7 @@ Transform {
 
 	]
 }
+
 
 
 #Escritorio { posicion 4 1.225 -3.5 escala 1.5 1.5 1.5}

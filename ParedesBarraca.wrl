@@ -1,0 +1,147 @@
+#VRML V2.0 utf8
+
+EXTERNPROTO	Muro [
+	field SFVec3f posicion
+	field SFVec3f proporciones
+] "Muro.wrl#Muro"
+
+EXTERNPROTO	Piso [
+	field SFVec3f posicion
+	field SFVec3f tamanio
+] "Piso.wrl#Piso"
+
+EXTERNPROTO	Ventana [
+	field SFVec3f posicion
+	field SFVec3f tamanio
+	field SFFloat transparencia
+] "Ventana.wrl#Ventana"
+
+PROTO ParedesBarraca [
+	field SFVec3f posicion 0 0 0
+	field SFVec3f escala 1 1 1
+	exposedField MFString aula []
+]
+{
+
+	Transform {
+		translation	IS posicion
+		children [
+			#Muro {posicion 0 1.975 10.525 proporciones 2 4 0.05 }	  #Base 1 NO TOCAR EJE Y Z
+			#Muro {posicion 7.325 1.975 0 proporciones 0.05 4 2 }	   #Base 2 NO TOCAR EJE X Y
+
+			Transform {			 # LADO PIZARRA
+				translation	0 0 -0.5
+				children [
+					Muro {posicion 7.325 1.975 -10 proporciones 0.05 4 2 }
+					Muro {posicion 7.325 1.975 -8 proporciones 0.05 4 2 }
+					Muro {posicion 7.325 1.975 -6 proporciones 0.05 4 2 }
+					Muro {posicion 7.325 1.975 -4 proporciones 0.05 4 2 }
+					Muro {posicion 7.325 1.975 -2 proporciones 0.05 4 2 }
+					Muro {posicion 7.325 1.975 0 proporciones 0.05 4 2 }
+					Muro {posicion 7.325 1.975 2 proporciones 0.05 4 2 }
+					Muro {posicion 7.325 1.975 4 proporciones 0.05 4 2 }
+					Muro {posicion 7.325 1.975 6 proporciones 0.05 4 2 }
+					Muro {posicion 7.325 1.975 8 proporciones 0.05 4 2 }
+					Muro {posicion 7.325 1.975 10 proporciones 0.05 4 2 }
+				]
+			}
+
+			Transform {			 # LADO ATRAS
+				translation	0 0 -0.5
+				children [
+					Muro { posicion -4.725 1.975 -10 proporciones 0.05 4 2 }
+					Muro { posicion -4.725 1.975 -8 proporciones 0.05 4 2 }
+					Muro { posicion -4.725 1.975 -6 proporciones 0.05 4 2 }
+					Muro { posicion -4.725 1.975 -4 proporciones 0.05 4 2 }
+					Muro { posicion -4.725 1.975 -2 proporciones 0.05 4 2 }
+					Muro { posicion -4.725 1.975 0 proporciones 0.05 4 2 }
+					Muro { posicion -4.725 1.975 2 proporciones 0.05 4 2 }
+					Muro { posicion -4.725 1.975 4 proporciones 0.05 4 2 }
+					Muro { posicion -4.725 1.975 6 proporciones 0.05 4 2 }
+					Muro { posicion -4.725 1.975 8 proporciones 0.05 4 2 }
+					Muro { posicion -4.725 1.975 10 proporciones 0.05 4 2 }
+				]
+			}
+
+			Transform {			 # LADO FONDO
+				translation	0.3 0 0
+				children [
+					Muro {posicion -4 1.725 -11.525 proporciones 2 3.5 0.05 }
+					Muro {posicion -2 1.975 -11.525 proporciones 2 4 0.05 }
+					Muro {posicion 0 1.975 -11.525 proporciones 2 4 0.05 }
+					Muro {posicion 2 1.975 -11.525 proporciones 2 4 0.05 }
+					Muro {posicion 4 1.975 -11.525 proporciones 2 4 0.05 }
+					Muro {posicion 6 1.725 -11.525 proporciones 2 3.5 0.05 }
+				]
+			}
+
+
+			Transform {			# LADO PUERTA
+				translation	1.65 0 0
+				children [
+
+					Muro { posicion 0.8 0.85 10.525 proporciones 9.3998 1.75 0.05 }  # Parte baja
+					Muro { posicion 0.8 3.725 10.525 proporciones 9.3998 0.5 0.05 } # parte arriba
+					Muro { posicion -5.225 3.725 10.525 proporciones 2.25 0.5 0.05 } # parte arriba
+					
+					Muro { posicion -4 1.975 10.525 proporciones 0.2 4 0.05 } 
+					Muro { posicion 5.60 1.975 10.525 proporciones 0.2 4 0.05 }
+							
+					Transform {
+						translation	-5.55 3.605 10.551
+						children Shape {
+							geometry Text {
+								string IS aula
+								fontStyle FontStyle	{
+									size 0.3
+									style "BOLD"
+								}
+							}
+							appearance Appearance {
+								material Material {
+									diffuseColor 0.353 0.518 0.706
+								}
+							}
+						}
+					}
+
+					Transform {
+						translation	-2 0 0
+						children [
+							Ventana	{ posicion  -1.3714 2.6 10.525 tamanio 1.3714 1.75 0.1 transparencia 0.5 }
+							Ventana	{ posicion  0       2.6 10.525 tamanio 1.3714 1.75 0.1 transparencia 1.0 }
+							Ventana	{ posicion  1.3714  2.6 10.525 tamanio 1.3714 1.75 0.1 transparencia 0.5 }
+							Ventana	{ posicion  2.7428  2.6 10.52  tamanio 1.3714 1.75 0.1 transparencia 1.0 }
+							Ventana	{ posicion  4.1142  2.6 10.525 tamanio 1.3714 1.75 0.1 transparencia 0.5 }
+							Ventana	{ posicion  5.4856  2.6 10.525 tamanio 1.3714 1.75 0.1 transparencia 1.0 }
+							Ventana	{ posicion  6.857   2.6 10.525 tamanio 1.3714 1.75 0.1 transparencia 0.5 }
+						]
+					}	
+
+				]
+			}
+			
+		]
+	}
+
+}
+
+# Luz de ambiente
+DirectionalLight {
+	#ambientIntensity 10
+	color 1 1 1
+	intensity 10
+	direction 0 -8 0
+}
+
+
+ParedesBarraca { posicion -36.15 0 0 aula "A-01"} 
+ParedesBarraca { posicion -24.1 0 0 aula "A-02"} 
+ParedesBarraca { posicion -12.05 0 0 aula "A-03"} 
+ParedesBarraca { aula "A-04"  }
+ParedesBarraca { posicion 12.05 0 0 aula "A-05"} 
+ParedesBarraca { posicion 24.1 0 0 aula "A-06"}
+
+										
+# Suelo del mundo
+Piso { tamanio 12 0.05 22 posicion 1.3 0 -0.5 }
