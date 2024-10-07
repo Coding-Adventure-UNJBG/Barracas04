@@ -18,6 +18,11 @@ EXTERNPROTO	TechoBarraca [
 	field SFVec3f posicion
 ] "TechoBarraca.wrl#TechoBarraca"
 
+EXTERNPROTO	Puerta [
+	field SFVec3f posicion
+	field SFInt32 openPuerta
+] "Puerta.wrl#Puerta"
+
 # FIN IMPORTAR PROTOTIPOS
 
 
@@ -27,6 +32,7 @@ PROTO AmbienteBarraca [
 	field MFString aula []	
 	field SFInt32 openCortina -1
 	field SFInt32 openVentana -1
+	field SFInt32 openPuerta 0
 ]
 {
 
@@ -45,9 +51,13 @@ PROTO AmbienteBarraca [
 
 			# TECHO BARRACA
 			TechoBarraca { posicion -3.2 3.95 4 }
+
+			# PUERTA
+			Puerta { posicion 0 1.725 10.525 openPuerta IS openPuerta } 
 		]
 	}
 }
 
-AmbienteBarraca	{ aula "A-04" openCortina 0 openVentana 0 }
+#AmbienteBarraca	{ aula "A-04" openCortina 0 openVentana 0 }
+AmbienteBarraca	{ aula "A-04" openCortina 0 openVentana 0 openPuerta 1 }
 #AmbienteBarraca	{ aula "A-04" openCortina 1 }
