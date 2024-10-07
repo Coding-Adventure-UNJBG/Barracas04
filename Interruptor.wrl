@@ -1,0 +1,63 @@
+#VRML V2.0 utf8
+
+#VRML V2.0 utf8
+
+
+PROTO Interruptor [
+	field SFVec3f posicion 0 0 0 
+	exposedField SFInt32 opcion -1
+]
+{
+	PROTO Tubo [
+		field SFVec3f posicion 0 0 0
+	]
+	{
+		Transform {
+			translation	IS posicion children Shape {
+				geometry Cylinder { radius 0.01 height 2.1 }
+				appearance Appearance {
+					material Material {
+						diffuseColor 0.8 0.8 0.8
+					}
+				}
+			}
+		}
+	}
+
+	Transform {
+		translation	IS posicion
+		children [
+			Shape {
+				geometry Box { size 0.05 0.08 0.05}
+				appearance Appearance {
+					material Material {
+						diffuseColor 0.94 0.94 0.94
+					}
+				}
+			}
+
+			Transform {
+				translation	0.0255 0 0 
+				children [
+					Shape {
+						geometry Box { size 0 0.08 0.05}
+						appearance Appearance {
+							texture	ImageTexture {
+								url	"./imagenes/interruptor.jpeg"
+							}
+						}
+					}
+					
+				]
+			}
+
+			Tubo { posicion -0.015 1.09 0  }
+			
+		]
+	}
+}
+
+
+Interruptor {  }
+#Interruptor { posicion 1 0 0}
+#Interruptor { posicion 2 0 0 }

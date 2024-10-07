@@ -3,15 +3,16 @@
 
 PROTO TomaCorriente [
 	field SFVec3f posicion 0 0 0 
+	exposedField SFInt32 opcion -1
 ]
 {
-	PROTO tubo [
+	PROTO Tubo [
 		field SFVec3f posicion 0 0 0
 	]
 	{
 		Transform {
 			translation	IS posicion children Shape {
-				geometry Cylinder { radius 0.01 height 0.5}
+				geometry Cylinder { radius 0.01 height 3.1 }
 				appearance Appearance {
 					material Material {
 						diffuseColor 0.8 0.8 0.8
@@ -21,11 +22,25 @@ PROTO TomaCorriente [
 		}
 	}
 
+	PROTO Cuadro [
+		field SFVec3f posicion 0 0 0
+	] 
+	{
+		Transform {
+			translation	IS posicion	children Shape {
+				geometry Box { size 0.02 3.1 0.02 }
+				appearance Appearance {
+					material Material { diffuseColor 0.94 0.94 0.94 }
+				}
+			}
+		}
+	}
+
 	Transform {
 		translation	IS posicion
 		children [
 			Shape {
-				geometry Box { size 0.2 0.1 0.1}
+				geometry Box { size 0.05 0.1 0.2}
 				appearance Appearance {
 					material Material {
 						diffuseColor 0.94 0.94 0.94
@@ -34,10 +49,10 @@ PROTO TomaCorriente [
 			}
 
 			Transform {
-				translation	0 0 0.0505 
+				translation	0.0255 0 0 
 				children [
 					Shape {
-						geometry Box { size 0.2 0.1 0}
+						geometry Box { size 0 0.1 0.2}
 						appearance Appearance {
 							texture	ImageTexture {
 								url	"./imagenes/tomaCorriente.jpeg"
@@ -48,12 +63,19 @@ PROTO TomaCorriente [
 				]
 			}
 
-
-			tubo {}
-			
+			Switch {
+				whichChoice	IS opcion
+				choice [
+					#Tubo { posicion -0.015 0.55 0 escala IS escala }
+					Tubo { posicion -0.015 1.6 0  }	
+					Cuadro { posicion -0.015 1.6 0 }
+				]
+			}			
 		]
 	}
 }
 
 
-TomaCorriente {}
+TomaCorriente {  }
+#TomaCorriente { opcion 0 posicion 1 0 0}
+#TomaCorriente { opcion 1 posicion 2 0 0 }

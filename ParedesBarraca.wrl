@@ -20,6 +20,14 @@ EXTERNPROTO	TechoBarraca [
 	field SFVec3f posicion
 ] "TechoBarraca.wrl#TechoBarraca"
 
+EXTERNPROTO	TomaCorriente [
+	field SFVec3f posicion
+	exposedField SFInt32 opcion
+] "TomaCorriente.wrl#TomaCorriente"
+
+EXTERNPROTO	Interruptor [
+	field SFVec3f posicion
+] "Interruptor.wrl#Interruptor"
 
 PROTO ParedesBarraca [
 	field SFVec3f posicion 0 0 0
@@ -56,13 +64,24 @@ PROTO ParedesBarraca [
 				children [
 					Muro { posicion -4.725 1.975 -10 proporciones 0.05 4 2 }
 					Muro { posicion -4.725 1.975 -8 proporciones 0.05 4 2 }
+					
+					#Toma Corriente
+					TomaCorriente { posicion -4.675 0.8 -5  opcion 0 }
 					Muro { posicion -4.725 1.975 -6 proporciones 0.05 4 2 }
+
+					
 					Muro { posicion -4.725 1.975 -4 proporciones 0.05 4 2 }
 					Muro { posicion -4.725 1.975 -2 proporciones 0.05 4 2 }
 					Muro { posicion -4.725 1.975 0 proporciones 0.05 4 2 }
 					Muro { posicion -4.725 1.975 2 proporciones 0.05 4 2 }
 					Muro { posicion -4.725 1.975 4 proporciones 0.05 4 2 }
+
+					#Toma Corriente
+					TomaCorriente { posicion -4.675 0.8 5.5  opcion 1 }
 					Muro { posicion -4.725 1.975 6 proporciones 0.05 4 2 }
+
+					# Interruptor
+					Interruptor	{ posicion -4.675 1.8 7 }
 					Muro { posicion -4.725 1.975 8 proporciones 0.05 4 2 }
 					Muro { posicion -4.725 1.975 10 proporciones 0.05 4 2 }
 				]
