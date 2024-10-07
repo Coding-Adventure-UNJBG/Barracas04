@@ -32,11 +32,17 @@ EXTERNPROTO	AmbienteBarraca [
 	exposedField MFString aula
 ] "AmbienteBarraca.wrl#AmbienteBarraca"
 
+EXTERNPROTO	Afiche [
+	field SFVec3f posicion
+	field SFVec3f escala
+	exposedField MFString ruta
+] "Afiche.wrl#Afiche"
+
 ## ARMADO DEL PROYECTO
 
 # Luz de ambiente
 DirectionalLight {
-	#ambientIntensity 10
+	ambientIntensity 10
 	color 1 1 1
 	intensity 10
 	direction 0 -8 0
@@ -282,11 +288,16 @@ Transform {
 	]
 }
 
-# Pizarra
+# Pizarra + afiches
 Transform {
 	translation	0 0 0
 	rotation 0 1 0 1.5708
 	children [
 		Pizarra	{ posicion 0 2.4 7.255 escala 0.9 0.9 1 }
+		Afiche { posicion -3.5 2.3 7.3 escala 0.4 0.6 1 ruta "./imagenes/postmaster.jpg"}
+
+		Afiche { posicion 4.2 1.7 7.3 escala 0.4 0.6 1 ruta "./imagenes/af_manos.jpg"}
+		Afiche { posicion 4.2 2.3 7.3 escala 0.4 0.6 1 ruta "./imagenes/af_distancia.png"}
+		Afiche { posicion 4.2 2.9 7.3 escala 0.4 0.6 1 ruta "./imagenes/af_mascarilla.jpg"}
 	]
 }
