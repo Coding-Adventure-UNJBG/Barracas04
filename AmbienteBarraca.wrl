@@ -4,7 +4,9 @@
 EXTERNPROTO	ParedesBarraca [
 	field SFVec3f posicion
 	field SFVec3f escala
-	exposedField MFString aula
+	field MFString aula
+	field SFInt32 openCortina
+	field SFInt32 openVentana
 ] "ParedesBarraca.wrl#ParedesBarraca"
 
 EXTERNPROTO	Piso [
@@ -22,7 +24,9 @@ EXTERNPROTO	TechoBarraca [
 # DEFINIR PROTOTIPO
 PROTO AmbienteBarraca [
 	field SFVec3f posicion	0 0 0
-	exposedField MFString aula []	
+	field MFString aula []	
+	field SFInt32 openCortina -1
+	field SFInt32 openVentana -1
 ]
 {
 
@@ -33,7 +37,11 @@ PROTO AmbienteBarraca [
 			Piso { posicion 1.3 0 -0.5 tamanio 12 0.05 22 }
 
 			# PAREDES BARRACA
-			ParedesBarraca	{ aula IS aula }
+			ParedesBarraca	{ 
+				aula IS aula 
+				openCortina	IS openCortina
+				openVentana IS openVentana
+			}
 
 			# TECHO BARRACA
 			TechoBarraca { posicion -3.2 3.95 4 }
@@ -41,4 +49,5 @@ PROTO AmbienteBarraca [
 	}
 }
 
-AmbienteBarraca	{ aula "A-04"}
+AmbienteBarraca	{ aula "A-04" openCortina 0 openVentana 0 }
+#AmbienteBarraca	{ aula "A-04" openCortina 1 }

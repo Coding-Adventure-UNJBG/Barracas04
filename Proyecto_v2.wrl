@@ -29,13 +29,15 @@ EXTERNPROTO	Pupitre [
 
 EXTERNPROTO	AmbienteBarraca [
 	field SFVec3f posicion
-	exposedField MFString aula
+	field MFString aula
+	field SFInt32 openCortina
+	field SFInt32 openVentana
 ] "AmbienteBarraca.wrl#AmbienteBarraca"
 
 EXTERNPROTO	Afiche [
 	field SFVec3f posicion
 	field SFVec3f escala
-	exposedField MFString ruta
+	field MFString ruta
 ] "Afiche.wrl#Afiche"
 
 ## ARMADO DEL PROYECTO
@@ -64,12 +66,18 @@ Viewpoint {
 }
 
 # AMBIENTES BARRACA X
-AmbienteBarraca	{ aula "A-04"}
-#AmbienteBarraca	{ aula "A-01" posicion -36.15 0 0 }
-#AmbienteBarraca	{ aula "A-02" posicion -24.1 0 0 }
-#AmbienteBarraca	{ aula "A-03" posicion -12.05 0 0 }
-#AmbienteBarraca	{ aula "A-05" posicion 12.05 0 0 }
-#AmbienteBarraca	{ aula "A-06" posicion 24.1 0 0 }
+AmbienteBarraca	{ aula "A-04" openCortina 1 openVentana 1 }
+
+AmbienteBarraca	{ aula "A-01" posicion -36.15 0 0 openCortina 0 openVentana 0 }
+
+AmbienteBarraca	{ aula "A-02" posicion -24.1 0 0 openCortina 0 openVentana 0 }
+
+AmbienteBarraca	{ aula "A-03" posicion -12.05 0 0 openCortina 0 openVentana 0 }
+
+AmbienteBarraca	{ aula "A-05" posicion 12.05 0 0 openCortina 0 openVentana 0 }
+
+AmbienteBarraca	{ aula "A-06" posicion 24.1 0 0 openCortina 0 openVentana 0 }
+
 
 
 # Suelo del mundo

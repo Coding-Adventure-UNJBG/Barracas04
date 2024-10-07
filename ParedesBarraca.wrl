@@ -22,17 +22,24 @@ EXTERNPROTO	TechoBarraca [
 
 EXTERNPROTO	TomaCorriente [
 	field SFVec3f posicion
-	exposedField SFInt32 opcion
+	field SFInt32 opcion
 ] "TomaCorriente.wrl#TomaCorriente"
 
 EXTERNPROTO	Interruptor [
 	field SFVec3f posicion
 ] "Interruptor.wrl#Interruptor"
 
+EXTERNPROTO	Cortina [
+	field SFVec3f posicion
+	field SFVec3f tamanio
+] "Cortina.wrl#Cortina"
+
 PROTO ParedesBarraca [
 	field SFVec3f posicion 0 0 0
 	field SFVec3f escala 1 1 1
-	exposedField MFString aula []
+	field SFInt32 openCortina -1
+	field MFString aula []
+	field SFInt32 openVentana -1
 ]
 {
 
@@ -81,7 +88,7 @@ PROTO ParedesBarraca [
 					Muro { posicion -4.725 1.975 6 proporciones 0.05 4 2 }
 
 					# Interruptor
-					Interruptor	{ posicion -4.675 1.8 7 }
+					Interruptor	{ posicion -4.675 1.9 7 }
 					Muro { posicion -4.725 1.975 8 proporciones 0.05 4 2 }
 					Muro { posicion -4.725 1.975 10 proporciones 0.05 4 2 }
 				]
@@ -110,7 +117,8 @@ PROTO ParedesBarraca [
 					
 					Muro { posicion -4 1.975 10.525 proporciones 0.2 4 0.05 } 
 					Muro { posicion 5.60 1.975 10.525 proporciones 0.2 4 0.05 }
-							
+					
+					# Nombre Barraca		
 					Transform {
 						translation	-5.55 3.605 10.551
 						children Shape {
@@ -129,19 +137,72 @@ PROTO ParedesBarraca [
 						}
 					}
 
-					Transform {
-						translation	-2 0 0
-						children [
-							Ventana	{ posicion  -1.3714 2.6 10.525 tamanio 1.3714 1.75 0.1 transparencia 0.5 }
-							Ventana	{ posicion  0       2.6 10.525 tamanio 1.3714 1.75 0.1 transparencia 1.0 }
-							Ventana	{ posicion  1.3714  2.6 10.525 tamanio 1.3714 1.75 0.1 transparencia 0.5 }
-							Ventana	{ posicion  2.7428  2.6 10.52  tamanio 1.3714 1.75 0.1 transparencia 1.0 }
-							Ventana	{ posicion  4.1142  2.6 10.525 tamanio 1.3714 1.75 0.1 transparencia 0.5 }
-							Ventana	{ posicion  5.4856  2.6 10.525 tamanio 1.3714 1.75 0.1 transparencia 1.0 }
-							Ventana	{ posicion  6.857   2.6 10.525 tamanio 1.3714 1.75 0.1 transparencia 0.5 }
+					Switch {
+						whichChoice	IS openVentana
+						choice [
+							# Ventanas cerradas
+							Transform {
+								translation	-2 0 0
+								children [
+									Ventana	{ posicion  -1.3714 2.6 10.525 tamanio 1.3714 1.75 0.1 transparencia 0.5 }
+									Ventana	{ posicion  0       2.6 10.525 tamanio 1.3714 1.75 0.1 transparencia 0.5 }
+									Ventana	{ posicion  1.3714  2.6 10.525 tamanio 1.3714 1.75 0.1 transparencia 0.5 }
+									Ventana	{ posicion  2.7428  2.6 10.52  tamanio 1.3714 1.75 0.1 transparencia 0.5 }
+									Ventana	{ posicion  4.1142  2.6 10.525 tamanio 1.3714 1.75 0.1 transparencia 0.5 }
+									Ventana	{ posicion  5.4856  2.6 10.525 tamanio 1.3714 1.75 0.1 transparencia 0.5 }
+									Ventana	{ posicion  6.857   2.6 10.525 tamanio 1.3714 1.75 0.1 transparencia 0.5 }
+								]
+							}
+						
+							# Ventanas abiertas
+							Transform {
+								translation	-2 0 0
+								children [
+									Ventana	{ posicion  -1.3714 2.6 10.525 tamanio 1.3714 1.75 0.1 transparencia 0.5 }
+									Ventana	{ posicion  0       2.6 10.525 tamanio 1.3714 1.75 0.1 transparencia 1.0 }
+									Ventana	{ posicion  1.3714  2.6 10.525 tamanio 1.3714 1.75 0.1 transparencia 0.5 }
+									Ventana	{ posicion  2.7428  2.6 10.52  tamanio 1.3714 1.75 0.1 transparencia 1.0 }
+									Ventana	{ posicion  4.1142  2.6 10.525 tamanio 1.3714 1.75 0.1 transparencia 0.5 }
+									Ventana	{ posicion  5.4856  2.6 10.525 tamanio 1.3714 1.75 0.1 transparencia 1.0 }
+									Ventana	{ posicion  6.857   2.6 10.525 tamanio 1.3714 1.75 0.1 transparencia 0.5 }
+								]
+							}	
 						]
-					}	
+					}
 
+						
+
+					Switch {
+						whichChoice	IS openCortina
+						choice [	
+							# Cortinas cerradas openCortina = 0
+							Transform {
+								translation	-2 0 -0.1
+								children [
+									Cortina	{posicion -1.3714 2.6 10.525 tamanio 1.3714 2.75 0.1 }
+									Cortina	{posicion 0       2.6 10.525 tamanio 1.3714 2.75 0.1 }
+									Cortina	{posicion 1.3714  2.6 10.525 tamanio 1.3714 2.75 0.1 }
+									Cortina	{posicion 2.7428  2.6 10.525 tamanio 1.3714 2.75 0.1 }
+									Cortina	{posicion 4.1142  2.6 10.525 tamanio 1.3714 2.75 0.1 }
+									Cortina	{posicion 5.4856  2.6 10.525 tamanio 1.3714 2.75 0.1 }
+									Cortina	{posicion 6.857   2.6 10.525 tamanio 1.3714 2.75 0.1 }
+								]
+							}
+
+							# Cortinas abiertas openCortina = 1
+							Transform {
+								translation -2 0 -0.1
+								children [
+									Cortina	{posicion -1.3714 2.6 10.525 tamanio 1.3714 2.75 0.1 }
+									Cortina	{posicion 6.857   2.6 10.525 tamanio 1.3714 2.75 0.1 }
+								]
+							}
+						]
+					}
+
+					
+
+				
 				]
 			}
 			
@@ -165,7 +226,7 @@ DirectionalLight {
 #ParedesBarraca { posicion -36.15 0 0 aula "A-01"} 
 #ParedesBarraca { posicion -24.1 0 0 aula "A-02"} 
 #ParedesBarraca { posicion -12.05 0 0 aula "A-03"} 
-ParedesBarraca { aula "A-04"  }
+ParedesBarraca { aula "A-04" openCortina 1 }
 #ParedesBarraca { posicion 12.05 0 0 aula "A-05"} 
 #ParedesBarraca { posicion 24.1 0 0 aula "A-06"}
 

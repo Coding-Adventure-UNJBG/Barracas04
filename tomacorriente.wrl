@@ -3,7 +3,7 @@
 
 PROTO TomaCorriente [
 	field SFVec3f posicion 0 0 0 
-	exposedField SFInt32 opcion -1
+	field SFInt32 opcion -1
 ]
 {
 	PROTO Tubo [
@@ -77,5 +77,5 @@ PROTO TomaCorriente [
 
 
 TomaCorriente {  }
-#TomaCorriente { opcion 0 posicion 1 0 0}
-#TomaCorriente { opcion 1 posicion 2 0 0 }
+TomaCorriente { opcion 0 posicion 1 0 0}
+TomaCorriente { opcion 1 posicion 2 0 0 }

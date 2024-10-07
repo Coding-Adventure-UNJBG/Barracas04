@@ -5,7 +5,7 @@
 
 PROTO Interruptor [
 	field SFVec3f posicion 0 0 0 
-	exposedField SFInt32 opcion -1
+	field SFInt32 opcion -1
 ]
 {
 	PROTO Tubo [

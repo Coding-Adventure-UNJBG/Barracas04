@@ -1,0 +1,26 @@
+#VRML V2.0 utf8
+
+
+PROTO Cortina [
+	field SFVec3f posicion 0 0 0
+	field SFVec3f escala 1 1 0.1
+	field SFVec3f tamanio 1 1 0.1
+]
+{
+	Transform {
+		translation	IS posicion
+		scale IS escala
+		children [
+			Shape {
+				geometry Box { size IS tamanio }
+				appearance Appearance {
+					material Material { diffuseColor  1 0 0 }
+					texture	ImageTexture { url "./imagenes/cortina.png" }
+				}
+			}
+		]
+	}
+}
+
+
+Cortina	{ escala 1 2 1}
