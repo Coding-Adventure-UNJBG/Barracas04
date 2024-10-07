@@ -1,0 +1,106 @@
+#VRML V2.0 utf8
+
+EXTERNPROTO	PanelTecho [
+	field SFVec3f posicion
+	field SFVec3f escala
+] "PanelTecho.wrl#PanelTecho"
+
+EXTERNPROTO	Muro [
+	field SFVec3f posicion
+	field SFVec3f proporciones
+] "Muro.wrl#Muro"
+
+PROTO TechoBarraca [
+	field SFVec3f posicion 0 0 0
+]
+{
+	Transform {
+		translation	IS posicion
+		rotation 0 1 0 1.5708
+		children [
+			 #Muro { posicion 0 1.975 0 proporciones 2 4 0.05 }
+			 #Muro { posicion 2 1.975 0 proporciones 2 4 0.05 }
+			Transform {
+				rotation 1 0 0 1.5708
+				children [
+
+					Transform {
+						translation	0 0 0
+						children [
+							PanelTecho	{ posicion -5.4975 0 0  escala 0.9525 1.42875 0.5}
+							PanelTecho	{ posicion -3 0 0 escala 1.42875 1.42875 0.5}
+							PanelTecho	{ posicion 0 0 0 escala 1.42875 1.42875 0.5}
+							PanelTecho	{ posicion 3 0 0 escala 1.42875 1.42875 0.5}
+							PanelTecho	{ posicion 6 0 0 escala 1.42875 1.42875 0.5}
+							PanelTecho	{ posicion 9 0 0 escala 1.42875 1.42875 0.5}
+							PanelTecho	{ posicion 12 0 0 escala 1.42875 1.42875 0.5}
+							PanelTecho	{ posicion 14.4975 0 0 escala 0.9525 1.42875 0.5}
+						]
+					}
+
+					Transform {
+						translation	0 3 0
+						children [
+							PanelTecho	{ posicion -5.4975 0 0  escala 0.9525 1.42875 0.5}
+							PanelTecho	{ posicion -3 0 0 escala 1.42875 1.42875 0.5}
+							PanelTecho	{ posicion 0 0 0 escala 1.42875 1.42875 0.5}
+							PanelTecho	{ posicion 3 0 0 escala 1.42875 1.42875 0.5}
+							PanelTecho	{ posicion 6 0 0 escala 1.42875 1.42875 0.5}
+							PanelTecho	{ posicion 9 0 0 escala 1.42875 1.42875 0.5}
+							PanelTecho	{ posicion 12 0 0 escala 1.42875 1.42875 0.5}
+							PanelTecho	{ posicion 14.4975 0 0 escala 0.9525 1.42875 0.5}
+						]
+					}
+
+					Transform {
+						translation	0 6 0
+						children [
+							PanelTecho	{ posicion -5.4975 0 0  escala 0.9525 1.42875 0.5}
+							PanelTecho	{ posicion -3 0 0 escala 1.42875 1.42875 0.5}
+							PanelTecho	{ posicion 0 0 0 escala 1.42875 1.42875 0.5}
+							PanelTecho	{ posicion 3 0 0 escala 1.42875 1.42875 0.5}
+							PanelTecho	{ posicion 6 0 0 escala 1.42875 1.42875 0.5}
+							PanelTecho	{ posicion 9 0 0 escala 1.42875 1.42875 0.5}
+							PanelTecho	{ posicion 12 0 0 escala 1.42875 1.42875 0.5}
+							PanelTecho	{ posicion 14.4975 0 0 escala 0.9525 1.42875 0.5}
+						]
+					}
+
+					Transform {
+						translation	0 9 0
+						children [
+							PanelTecho	{ posicion -5.4975 0 0  escala 0.9525 1.42875 0.5}
+							PanelTecho	{ posicion -3 0 0 escala 1.42875 1.42875 0.5}
+							PanelTecho	{ posicion 0 0 0 escala 1.42875 1.42875 0.5}
+							PanelTecho	{ posicion 3 0 0 escala 1.42875 1.42875 0.5}
+							PanelTecho	{ posicion 6 0 0 escala 1.42875 1.42875 0.5}
+							PanelTecho	{ posicion 9 0 0 escala 1.42875 1.42875 0.5}
+							PanelTecho	{ posicion 12 0 0 escala 1.42875 1.42875 0.5}
+							PanelTecho	{ posicion 14.4975 0 0 escala 0.9525 1.42875 0.5}
+						]
+					}
+				]
+			}
+						   #TechoBarraca { posicion -3.2 4 4 }
+			Transform {
+				translation	 4.5 0.05 4.5
+				children Shape {
+					geometry Box { size 22.1 0.05 12.1}
+					appearance Appearance {
+						texture	ImageTexture {
+							url	"./imagenes/calamina.jpg"
+						}
+					}
+				}
+			}
+
+
+			
+
+			#1.905
+		]
+	}
+}
+
+
+TechoBarraca {}

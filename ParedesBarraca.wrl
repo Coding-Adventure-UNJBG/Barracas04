@@ -16,6 +16,11 @@ EXTERNPROTO	Ventana [
 	field SFFloat transparencia
 ] "Ventana.wrl#Ventana"
 
+EXTERNPROTO	TechoBarraca [
+	field SFVec3f posicion
+] "TechoBarraca.wrl#TechoBarraca"
+
+
 PROTO ParedesBarraca [
 	field SFVec3f posicion 0 0 0
 	field SFVec3f escala 1 1 1
@@ -126,6 +131,9 @@ PROTO ParedesBarraca [
 
 }
 
+
+# PRUEBAS
+
 # Luz de ambiente
 DirectionalLight {
 	#ambientIntensity 10
@@ -135,13 +143,16 @@ DirectionalLight {
 }
 
 
-ParedesBarraca { posicion -36.15 0 0 aula "A-01"} 
-ParedesBarraca { posicion -24.1 0 0 aula "A-02"} 
-ParedesBarraca { posicion -12.05 0 0 aula "A-03"} 
+#ParedesBarraca { posicion -36.15 0 0 aula "A-01"} 
+#ParedesBarraca { posicion -24.1 0 0 aula "A-02"} 
+#ParedesBarraca { posicion -12.05 0 0 aula "A-03"} 
 ParedesBarraca { aula "A-04"  }
-ParedesBarraca { posicion 12.05 0 0 aula "A-05"} 
-ParedesBarraca { posicion 24.1 0 0 aula "A-06"}
+#ParedesBarraca { posicion 12.05 0 0 aula "A-05"} 
+#ParedesBarraca { posicion 24.1 0 0 aula "A-06"}
 
+
+
+TechoBarraca { posicion -3.2 3.95 4 }
 										
 # Suelo del mundo
 Piso { tamanio 12 0.05 22 posicion 1.3 0 -0.5 }

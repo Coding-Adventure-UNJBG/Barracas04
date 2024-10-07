@@ -14,19 +14,11 @@ EXTERNPROTO	Escritorio [
 	field SFVec3f posicion
 	field SFVec3f escala
 ] "Escritorio.wrl#Escritorio"
-	
-EXTERNPROTO	Foco [
-
-] "Foco.wrl#Foco"
-
-EXTERNPROTO	Muro [
-
-] "Muro.wrl#Muro"
-
-EXTERNPROTO	PanelTecho [
-] "PanelTecho.wrl#PanelTecho"
 
 EXTERNPROTO	Pizarra [
+	field SFVec3f posicion
+	field SFColor colorMarco
+	field SFVec3f escala
 ] "Pizarra.wrl#Pizarra"
 
 EXTERNPROTO	Pupitre [
@@ -35,18 +27,10 @@ EXTERNPROTO	Pupitre [
 	field SFRotation rotacion
 ] "Pupitre.wrl#Pupitre"
 
-EXTERNPROTO	TomaCorriente [
-] "TomaCorriente.wrl#TomaCorriente"
-
-EXTERNPROTO	Piso [
-	field SFVec3f posicion
-	field SFVec3f tamanio
-] "Piso.wrl#Piso"
-
-EXTERNPROTO	ParedesBarraca [
+EXTERNPROTO	AmbienteBarraca [
 	field SFVec3f posicion
 	exposedField MFString aula
-] "ParedesBarraca.wrl#ParedesBarraca"
+] "AmbienteBarraca.wrl#AmbienteBarraca"
 
 ## ARMADO DEL PROYECTO
 
@@ -73,10 +57,19 @@ Viewpoint {
 	description "Punto de Vista Cajas"
 }
 
+# AMBIENTES BARRACA X
+AmbienteBarraca	{ aula "A-04"}
+#AmbienteBarraca	{ aula "A-01" posicion -36.15 0 0 }
+#AmbienteBarraca	{ aula "A-02" posicion -24.1 0 0 }
+#AmbienteBarraca	{ aula "A-03" posicion -12.05 0 0 }
+#AmbienteBarraca	{ aula "A-05" posicion 12.05 0 0 }
+#AmbienteBarraca	{ aula "A-06" posicion 24.1 0 0 }
+
+
 # Suelo del mundo
-Piso { tamanio 12 0.05 22 posicion 1.3 0 -0.5 }
+#Piso { tamanio 12 0.05 22 posicion 1.3 0 -0.5 }
 #Piso { tamanio 2 0.05 4 }
-ParedesBarraca { aula "A-04"}
+#ParedesBarraca { aula "A-04"}
 
 # Seccion de las cajas
 Transform {
@@ -289,8 +282,11 @@ Transform {
 	]
 }
 
-
-
-#Escritorio { posicion 4 1.225 -3.5 escala 1.5 1.5 1.5}
-
-#Caja { posicion 0 0.475 0  escala 1.5 1.5 1.5 } # En el piso
+# Pizarra
+Transform {
+	translation	0 0 0
+	rotation 0 1 0 1.5708
+	children [
+		Pizarra	{ posicion 0 2.4 7.255 escala 0.9 0.9 1 }
+	]
+}

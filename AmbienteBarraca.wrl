@@ -1,0 +1,44 @@
+#VRML V2.0 utf8
+
+# IMPORTAR PROTOTIPOS
+EXTERNPROTO	ParedesBarraca [
+	field SFVec3f posicion
+	field SFVec3f escala
+	exposedField MFString aula
+] "ParedesBarraca.wrl#ParedesBarraca"
+
+EXTERNPROTO	Piso [
+	field SFVec3f posicion
+	field SFVec3f tamanio
+] "Piso.wrl#Piso"
+
+EXTERNPROTO	TechoBarraca [
+	field SFVec3f posicion
+] "TechoBarraca.wrl#TechoBarraca"
+
+# FIN IMPORTAR PROTOTIPOS
+
+
+# DEFINIR PROTOTIPO
+PROTO AmbienteBarraca [
+	field SFVec3f posicion	0 0 0
+	exposedField MFString aula []	
+]
+{
+
+	Transform {
+		translation	IS posicion
+		children [
+			# PISO
+			Piso { posicion 1.3 0 -0.5 tamanio 12 0.05 22 }
+
+			# PAREDES BARRACA
+			ParedesBarraca	{ aula IS aula }
+
+			# TECHO BARRACA
+			TechoBarraca { posicion -3.2 3.95 4 }
+		]
+	}
+}
+
+AmbienteBarraca	{ aula "A-04"}

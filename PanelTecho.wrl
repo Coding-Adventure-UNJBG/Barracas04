@@ -3,6 +3,7 @@
 
 PROTO PanelTecho [
 	field SFVec3f posicion 0 0 0
+	field SFVec3f escala 1 1 1
 ]
 {
 	PROTO Marco [
@@ -29,7 +30,7 @@ PROTO PanelTecho [
 
 	Transform {
 		translation	IS posicion	
-		#rotation 1 0 0 1.5708
+		scale IS escala
 		children [
 			Shape {
 				geometry Box { size 2 2 0.1 }
