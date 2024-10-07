@@ -1,10 +1,9 @@
 #VRML V2.0 utf8
 
-
-
 PROTO Foco [
 	field SFVec3f posicion 0 0 0
 	field SFColor colorBase 0.5 0.5 0.5 #Color gris
+	field SFVec3f escala 1 1 1
 ]
 {
 	PROTO Led [
@@ -12,10 +11,15 @@ PROTO Foco [
 	]
 	{
 		Transform {
-			translation	IS posicion	children Shape {
-				geometry Cylinder { radius 0.05 height 2 }
-			}
+			translation	IS posicion	
+			children [
+				Shape {
+					geometry Cylinder { radius 0.05 height 2 }
+				}
+			]
+					
 		}
+		
 	}
 
 	PROTO Laterales [
@@ -37,7 +41,8 @@ PROTO Foco [
 
 	Transform {
 		translation	IS posicion
-		rotation 1 0 0 1.5708	  # Rotar para que mire abajo
+		#rotation 1 0 0 1.5708	  # Rotar para que mire abajo
+		scale IS escala
 		children [
 			Shape { # Base
 				geometry Box {size 0.2 2 0.07}
@@ -55,6 +60,11 @@ PROTO Foco [
 			Laterales {posicion 0 -1.015 0.05 color IS colorBase }		
 		]
 	}
+
+	# Luz
+	
+	
+
 }
 
-Foco {}
+Foco { }

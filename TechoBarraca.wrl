@@ -10,6 +10,12 @@ EXTERNPROTO	Muro [
 	field SFVec3f proporciones
 ] "Muro.wrl#Muro"
 
+EXTERNPROTO	Foco [
+	field SFVec3f posicion
+	field SFVec3f escala
+] "Foco.wrl#Foco"
+
+
 PROTO TechoBarraca [
 	field SFVec3f posicion 0 0 0
 ]
@@ -29,10 +35,16 @@ PROTO TechoBarraca [
 						children [
 							PanelTecho	{ posicion -5.4975 0 0  escala 0.9525 1.42875 0.5}
 							PanelTecho	{ posicion -3 0 0 escala 1.42875 1.42875 0.5}
+							
+							Foco { posicion 0 0 0.05 escala 1 1.2 1}
 							PanelTecho	{ posicion 0 0 0 escala 1.42875 1.42875 0.5}
 							PanelTecho	{ posicion 3 0 0 escala 1.42875 1.42875 0.5}
+
+							Foco { posicion 6 0 0.05 escala 1 1.2 1}
 							PanelTecho	{ posicion 6 0 0 escala 1.42875 1.42875 0.5}
 							PanelTecho	{ posicion 9 0 0 escala 1.42875 1.42875 0.5}
+
+							Foco { posicion 12 0 0.05 escala 1 1.2 1}
 							PanelTecho	{ posicion 12 0 0 escala 1.42875 1.42875 0.5}
 							PanelTecho	{ posicion 14.4975 0 0 escala 0.9525 1.42875 0.5}
 						]
@@ -57,10 +69,16 @@ PROTO TechoBarraca [
 						children [
 							PanelTecho	{ posicion -5.4975 0 0  escala 0.9525 1.42875 0.5}
 							PanelTecho	{ posicion -3 0 0 escala 1.42875 1.42875 0.5}
+
+							Foco { posicion 0 0 0.05 escala 1 1.2 1}
 							PanelTecho	{ posicion 0 0 0 escala 1.42875 1.42875 0.5}
 							PanelTecho	{ posicion 3 0 0 escala 1.42875 1.42875 0.5}
+
+							Foco { posicion 6 0 0.05 escala 1 1.2 1}
 							PanelTecho	{ posicion 6 0 0 escala 1.42875 1.42875 0.5}
 							PanelTecho	{ posicion 9 0 0 escala 1.42875 1.42875 0.5}
+
+							Foco { posicion 12 0 0.05 escala 1 1.2 1}
 							PanelTecho	{ posicion 12 0 0 escala 1.42875 1.42875 0.5}
 							PanelTecho	{ posicion 14.4975 0 0 escala 0.9525 1.42875 0.5}
 						]
