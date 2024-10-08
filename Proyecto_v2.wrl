@@ -41,6 +41,11 @@ EXTERNPROTO	Afiche [
 	field MFString ruta
 ] "Afiche.wrl#Afiche"
 
+EXTERNPROTO	TachoBasura [
+	field SFVec3f posicion
+] "TachoBasura.wrl#TachoBasura"
+
+
 ## ARMADO DEL PROYECTO
 
 # Luz de ambiente
@@ -309,3 +314,5 @@ Transform {
 		Afiche { posicion 4.2 2.9 7.3 escala 0.4 0.6 1 ruta "./imagenes/af_mascarilla.jpg"}
 	]
 }
+
+TachoBasura { posicion -4.475 0.275 8 }
