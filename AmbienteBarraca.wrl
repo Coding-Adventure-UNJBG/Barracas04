@@ -12,6 +12,7 @@ EXTERNPROTO	ParedesBarraca [
 EXTERNPROTO	Piso [
 	field SFVec3f posicion
 	field SFVec3f tamanio
+	field MFString url
 ] "Piso.wrl#Piso"
 
 EXTERNPROTO	TechoBarraca [
@@ -54,10 +55,15 @@ PROTO AmbienteBarraca [
 
 			# PUERTA
 			Puerta { posicion 0 1.725 10.525 openPuerta IS openPuerta } 
+
+			# PISO FUERA							   # 0.0125
+			Piso { posicion -1.7375 -0.05 12.25 tamanio 6.025 0.05 3.5 url "./imagenes/piso_concreto.jpg" }
+			Piso { posicion 4.2875 -0.05 12.25 tamanio 6.025 0.05 3.5 url "./imagenes/piso_concreto.jpg" }  # 4.275
 		]
 	}
 }
 
-#AmbienteBarraca	{ aula "A-04" openCortina 0 openVentana 0 }
-AmbienteBarraca	{ aula "A-04" openCortina 0 openVentana 0 openPuerta 1 }
+AmbienteBarraca	{ aula "A-04" openCortina 0 openVentana 0 }
+#AmbienteBarraca	{ aula "A-01" posicion -36.15 0 0 openCortina 0 openVentana 0 }
+#AmbienteBarraca	{ aula "A-04" openCortina 0 openVentana 0 openPuerta 1 }
 #AmbienteBarraca	{ aula "A-04" openCortina 1 }

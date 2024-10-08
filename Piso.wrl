@@ -3,6 +3,7 @@
 PROTO Piso [
 	field SFVec3f posicion 0 0 0
 	field SFVec3f tamanio 20 0.05 40
+	field MFString url []
 ]
 {
 	Transform {
@@ -17,6 +18,9 @@ PROTO Piso [
 						#diffuseColor 0.25 0.1 0.1
 						#diffuseColor 0 1 0 
 					}
+					texture	ImageTexture {
+						url	IS url
+					}
 				}
 			}
 		]
@@ -24,4 +28,5 @@ PROTO Piso [
 }
 
 
-Piso {}
+#Piso {}
+Piso { url "./imagenes/piso_concreto.jpg" }

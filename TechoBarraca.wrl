@@ -106,7 +106,7 @@ PROTO TechoBarraca [
 					geometry Box { size 22.1 0.05 12.1}
 					appearance Appearance {
 						texture	ImageTexture {
-							url	"./imagenes/calamina.jpg"
+							url	"./imagenes/calamina2.jpg"
 						}
 					}
 				}
