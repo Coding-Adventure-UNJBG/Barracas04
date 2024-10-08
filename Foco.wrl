@@ -1,5 +1,7 @@
 #VRML V2.0 utf8
 
+NavigationInfo { headlight FALSE } # Apaga la luz
+
 PROTO Foco [
 	field SFVec3f posicion 0 0 0
 	field SFColor colorBase 0.5 0.5 0.5 #Color gris
@@ -15,9 +17,23 @@ PROTO Foco [
 			children [
 				Shape {
 					geometry Cylinder { radius 0.05 height 2 }
+					appearance Appearance {
+						material Material {
+							diffuseColor 1 1 1
+							emissiveColor 1 1 1
+						}
+					}
 				}
 			]
 					
+		}
+		PointLight {
+			location IS	posicion
+			radius 90
+			ambientIntensity 9
+			color 1 1 1
+			intensity 9
+			attenuation 0 0 0
 		}
 		
 	}
@@ -62,8 +78,6 @@ PROTO Foco [
 	}
 
 	# Luz
-	
-	
 
 }
 

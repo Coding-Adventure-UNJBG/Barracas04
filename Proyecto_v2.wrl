@@ -50,11 +50,13 @@ EXTERNPROTO	TachoBasura [
 
 # Luz de ambiente
 DirectionalLight {
-	ambientIntensity 10
+	ambientIntensity 1
 	color 1 1 1
-	intensity 10
+	intensity 1
 	direction 0 -8 0
-}
+}																					
+								  
+NavigationInfo { headlight FALSE } # Apaga la luz
 
 # Puntos de vista 
 
