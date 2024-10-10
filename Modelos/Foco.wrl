@@ -23,19 +23,21 @@ PROTO Foco [
 							emissiveColor 1 1 1
 						}
 					}
-				}
+				} 
+			   SpotLight { 
+				    location IS posicion         # Posición del foco en el espacio 3D
+    				direction 0 0 1        # Dirección hacia la que apunta la luz
+    				radius 480               # Radio máximo donde la luz afecta
+    				ambientIntensity 1    # Intensidad de luz ambiental
+    				color 1 1 0             # Color de la luz (amarillo)
+    				intensity 3             # Intensidad de la luz
+    				beamWidth 0.7           # Anchura del haz de luz (en radianes)
+    				cutOffAngle 1.2         # Ángulo de corte, define el área del cono iluminado
+    				attenuation 1 0 0.1     # Atenuación para que disminuya con la distancia
+				} 
 			]
 					
-		}
-		PointLight {
-			location IS	posicion
-			radius 90
-			ambientIntensity 9
-			color 1 1 1
-			intensity 9
-			attenuation 0 0 0
-		}
-		
+		}	
 	}
 
 	PROTO Laterales [
@@ -75,6 +77,7 @@ PROTO Foco [
 			Laterales {posicion 0 1.015 0.05 color IS colorBase }
 			Laterales {posicion 0 -1.015 0.05 color IS colorBase }		
 		]
+
 	}
 
 }
