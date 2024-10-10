@@ -1,0 +1,313 @@
+#VRML V2.0 utf8
+
+PROTO Humano [
+    field SFVec3f posicion 0 0 0
+    field SFVec3f escala 1.0 1.0 1.0
+    field SFRotation rotacion 0 1 0 0
+]
+{
+    PROTO Torso [
+        field SFVec3f posicion 0 0 0
+        field SFVec3f tamaño 0.66 0.9 0.35
+    ]
+    {
+        Transform {
+            translation IS posicion
+            children [
+                Shape {
+                    geometry Box { size IS tamaño }
+                    appearance Appearance {
+                        material Material {
+                            diffuseColor 1 0.8 0.6  # Color de piel
+                        }
+                    }
+                }
+            ]
+        }
+    }
+
+    PROTO Cuello [
+        field SFVec3f posicion 0 0 0
+        field SFFloat altura 0.3
+        field SFFloat radio 0.1
+    ]
+    {
+        Transform {
+            translation IS posicion
+            children [
+                Shape {
+                    geometry Cylinder { height IS altura radius IS radio }
+                    appearance Appearance {
+                        material Material {
+                            diffuseColor 1 0.8 0.6  # Color de piel
+                        }
+                    }
+                }
+            ]
+        }
+    }
+
+PROTO Cabeza [
+        field SFVec3f posicion 0 0 0
+        field SFFloat altura 0.5
+        field SFFloat radio 0.2
+    ]
+    {
+        Transform {
+            translation IS posicion
+            children [
+                Shape {
+                    geometry Cylinder { height IS altura radius IS radio }
+                    appearance Appearance {
+                        material Material {
+                            diffuseColor 1 0.8 0.6  # Color de piel
+                        }
+                    }
+                }
+            ]
+        }
+    }
+
+
+    PROTO Cadera [
+        field SFVec3f posicion 0 0 0
+        field SFVec3f tamaño 0.65 0.3 0.35
+    ]
+    {
+        Transform {
+            translation IS posicion
+            children [
+                Shape {
+                    geometry Box { size IS tamaño }
+                    appearance Appearance {
+                        material Material {
+                            diffuseColor 1 0.8 0.6  # Color de piel
+                        }
+                    }
+                }
+            ]
+        }
+    }
+
+    PROTO Hombro [
+        field SFVec3f posicion 0 0 0
+        field SFFloat radio 0.1
+    ]
+    {
+        Transform {
+            translation IS posicion
+            children [
+                Shape {
+                    geometry Sphere { radius IS radio }
+                    appearance Appearance {
+                        material Material {
+                            diffuseColor 1 0.8 0.6  # Color de piel
+                        }
+                    }
+                }
+            ]
+        }
+    }
+
+    PROTO Brazo [
+        field SFVec3f posicion 0 0 0
+        field SFFloat altura 0.9
+        field SFFloat radio 0.075
+    ]
+    {
+        Transform {
+            translation IS posicion
+            children [
+                Shape {
+                    geometry Cylinder { height IS altura radius IS radio }
+                    appearance Appearance {
+                        material Material {
+                            diffuseColor 1 0.8 0.6  # Color de piel
+                        }
+                    }
+                }
+            ]
+        }
+    }
+
+    PROTO Pierna [
+        field SFVec3f posicion 0 0 0
+        field SFFloat altura 1.1
+        field SFFloat radio 0.1
+    ]
+    {
+        Transform {
+            translation IS posicion
+            children [
+                Shape {
+                    geometry Cylinder { height IS altura radius IS radio }
+                    appearance Appearance {
+                        material Material {
+                            diffuseColor 1 0.8 0.6  # Color de piel
+                        }
+                    }
+                }
+            ]
+        }
+    }
+
+    PROTO Bota [
+        field SFVec3f posicion 0 0 0
+        field SFFloat altura 0.4
+        field SFFloat radio 0.1
+    ]
+    {
+        Transform {
+            translation IS posicion
+            rotation 1 0 0 1.57  # Rotación de 90 grados en el eje X
+            children [
+                Shape {
+                    geometry Cylinder { height IS altura radius IS radio }
+                    appearance Appearance {
+                        material Material {
+                            diffuseColor 0 0 0  # Color negro para las botas
+                        }
+                    }
+                }
+            ]
+        }
+    }
+
+    PROTO Camisa [
+        field SFVec3f posicion 0 0 0
+        field SFVec3f tamaño 0.66 0.3 0.35
+    ]
+    {
+        Transform {
+            translation IS posicion
+            children [
+                Shape {
+                    geometry Box { size IS tamaño }
+					appearance Appearance {
+                        texture ImageTexture { url "../Texturas/camisa.jpeg" }  # Textura aplicada
+                    }
+                }
+            ]
+        }
+    }
+
+    PROTO Corbata [
+        field SFVec3f posicion 0 0 0
+        field SFVec3f tamaño 0.66 0.3 0.35
+    ]
+    {
+        Transform {
+            translation IS posicion
+            children [
+                Shape {
+                    geometry Box { size IS tamaño }
+                    appearance Appearance {
+                        material Material {
+                            diffuseColor 1 1 1  # Color blanco para la corbata
+                        }
+                    }
+                }
+            ]
+        }
+    }
+
+    PROTO Pantalon [
+        field SFVec3f posicion 0 0 0
+        field SFVec3f tamaño 0.4 1.1 0.35
+    ]
+    {
+        Transform {
+            translation IS posicion
+            children [
+                Shape {
+                    geometry Box { size IS tamaño }
+                    appearance Appearance {
+                        material Material {
+                            diffuseColor 0.4 0.3 0.1  # Color marrón para el pantalón
+                        }
+                    }
+                }
+            ]
+        }
+    }
+
+	PROTO Zapato [
+        field SFVec3f posicion 0 0 0
+        field SFVec3f tamañoPlanta 0.3 0.1 0.15  # Tamaño del cubo para la planta
+        field SFFloat alturaOvoide 0.2  # Altura del ovoide
+        field SFFloat radioOvoide 0.15  # Radio del ovoide
+    ]
+    {
+        Transform {
+            translation IS posicion
+            children [
+                # Planta del zapato (cubo)
+                Shape {
+                    geometry Box { size IS tamañoPlanta }
+                    appearance Appearance {
+                        material Material {
+                            diffuseColor 0 0 0  # Color negro para la planta
+                        }
+                    }
+                }
+			]
+		}
+    }
+
+
+
+    Transform {
+        scale IS escala
+        translation IS posicion
+        rotation IS rotacion
+        children [
+            # Torso
+            Torso { posicion 0 1.8 0 tamaño 0.66 0.9 0.35 }
+
+            # Cuello
+            Cuello { posicion 0 2.4 0 altura 0.3 radio 0.1 }
+
+            # Cabeza
+            Cabeza { posicion 0 2.6 0 altura 0.4 radio 0.2 }
+
+            # Cadera
+            Cadera { posicion 0 1.2 0 tamaño 0.65 0.3 0.30 }
+
+            # Hombros
+            Hombro { posicion -0.42 2.2 0 radio 0.1 }  # Hombro izquierdo
+            Hombro { posicion 0.42 2.2 0 radio 0.1 }  # Hombro derecho
+
+            # Brazos
+            Brazo { posicion -0.425 1.79 0 altura 0.9 radio 0.075 }  # Brazo izquierdo
+            Brazo { posicion 0.425 1.79 0 altura 0.9 radio 0.075 }  # Brazo derecho
+
+            # Piernas
+            Pierna { posicion -0.175 0.5 0 altura 1.1 radio 0.1 }  # Pierna izquierda
+            Pierna { posicion 0.175 0.5 0 altura 1.1 radio 0.1 }  # Pierna derecha
+
+            # Botas
+            Bota { posicion -0.175 0.0 0.1 altura 0.4 radio 0.12 }  # Bota izquierda
+            Bota { posicion 0.175 0.0 0.1 altura 0.4 radio 0.12 }  # Bota derecha
+
+            # Ropa
+            Camisa { posicion 0 1.8 0 tamaño 0.68 1 0.38 }  # Camisa
+            Camisa { posicion 0.4 2.11 0 tamaño 0.25 0.395 0.3 }  # Camisa
+            Camisa { posicion -0.4 2.11 0 tamaño 0.25 0.395 0.3 }  # Camisa
+
+            Corbata { posicion 0 1.85 0.2 tamaño 0.2 0.9 0.02 }  # Corbata
+
+            Pantalon { posicion 0.2 0.6 0 tamaño 0.3 1.1 0.3 }  # Pantalón
+            Pantalon { posicion -0.2 0.6 0 tamaño 0.3 1.1 0.3 }  # Pantalón
+            Pantalon { posicion 0 1.2 0 tamaño 0.7 0.3 0.35 }  # Pantalón
+
+			# Zapatos
+														   #         fondo
+            Zapato { posicion -0.175 -0.09 0.1 tamañoPlanta 0.25 0.06 0.4 }  # Zapato izquierdo
+            Zapato { posicion 0.175 -0.09 0.1 tamañoPlanta 0.25 0.06 0.4 }  # Zapato derecho
+
+        ]
+    }
+}
+
+# Ejemplo de uso del PROTO Humano
+Humano { posicion 0 0 0 escala 1.0 1.0 1.0 rotacion 0 1 0 0 }

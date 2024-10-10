@@ -3,9 +3,9 @@
 # PUNTOS DE VISTA
 
 Viewpoint {			  
-	position -3.6 1.7 12
+	position -2 1.7 17
 	orientation 0 0 0 0
-	description "Punto de Vista Puerta"
+	description "Punto de Vista Puerta Principal"
 }
 
 Viewpoint {
