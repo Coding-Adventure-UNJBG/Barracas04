@@ -1,5 +1,12 @@
 #VRML V2.0 utf8
 
+EXTERNPROTO	Piso [
+	field SFVec3f posicion
+	field SFVec3f tamanio
+	field MFString url
+] "Piso.wrl#Piso"
+
+
 PROTO Humano [
     field SFVec3f posicion 0 0 0
     field SFVec3f escala 1.0 1.0 1.0
@@ -47,7 +54,7 @@ PROTO Humano [
         }
     }
 
-PROTO Cabeza [
+	PROTO Cabeza [
         field SFVec3f posicion 0 0 0
         field SFFloat altura 0.5
         field SFFloat radio 0.2
@@ -67,6 +74,30 @@ PROTO Cabeza [
             ]
         }
     }
+
+	PROTO Cara [
+    	field SFVec3f posicion 0 0 0
+    	field SFVec3f tamaño1 0 0 0
+	]
+	{
+    	Transform {
+        	translation IS posicion
+        	children [
+            	Shape {
+                	geometry Box { size IS tamaño1  }
+                	appearance Appearance {
+                    	material Material {
+                        	diffuseColor 0.6 0.8 1.0  # Color azul claro
+                    	}
+                        texture ImageTexture {
+                            url "../Imagenes/rostro.jpeg"
+                        }
+                	}
+            	}
+        	]
+    	}
+	}
+
 
 
     PROTO Cadera [
@@ -184,7 +215,7 @@ PROTO Cabeza [
                 Shape {
                     geometry Box { size IS tamaño }
 					appearance Appearance {
-                        texture ImageTexture { url "../Texturas/camisa.jpeg" }  # Textura aplicada
+                        texture ImageTexture { url "../Texturas/camisa1.jpg" }  # Textura aplicada
                     }
                 }
             ]
@@ -224,6 +255,9 @@ PROTO Cabeza [
                     appearance Appearance {
                         material Material {
                             diffuseColor 0.4 0.3 0.1  # Color marrón para el pantalón
+                        }
+						texture ImageTexture {
+                            url "../Texturas/pantalon.jpg"                            
                         }
                     }
                 }
@@ -270,6 +304,9 @@ PROTO Cabeza [
             # Cabeza
             Cabeza { posicion 0 2.6 0 altura 0.4 radio 0.2 }
 
+			# ROSTRO
+			Cara{posicion 0 2.6 0.2  tamaño1 0.35 0.4 0.1}
+
             # Cadera
             Cadera { posicion 0 1.2 0 tamaño 0.65 0.3 0.30 }
 
@@ -310,4 +347,6 @@ PROTO Cabeza [
 }
 
 # Ejemplo de uso del PROTO Humano
-Humano { posicion 0 0 0 escala 1.0 1.0 1.0 rotacion 0 1 0 0 }
+Humano { posicion 0 0.15 0 escala 1.0 1.0 1.0 rotacion 0 1 0 0 }
+#Piso { posicion -0.6 0 -0.5 tamanio 1 0.05 3 }
+#TachoBasura {posicion 0.8 0.275 0}

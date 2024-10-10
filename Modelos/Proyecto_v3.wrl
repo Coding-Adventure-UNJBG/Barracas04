@@ -286,3 +286,14 @@ Transform {
 }
 
 TachoBasura { posicion -4.475 0.275 8 }
+
+
+# EXTRA
+
+EXTERNPROTO	Humano [
+  field SFVec3f posicion
+  field SFVec3f escala 
+  field SFRotation rotacion
+] "Profesor.wrl#Humano"
+
+Humano { posicion  5 0.15 -2 escala 0.6 0.75 0.5 rotacion 0 1 0 -1.5708 }
