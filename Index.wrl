@@ -2,6 +2,8 @@
 
 NavigationInfo { headlight FALSE } # Apaga la luz
 
+
+
 # Luz de ambiente
 DirectionalLight {
 	ambientIntensity 1
@@ -17,3 +19,11 @@ Inline {
 Inline {
 	url	"Modelos/Proyecto_v3.wrl"
 }
+
+Inline { url "Exterior.wrl"}
+
+
+
+		
+
+

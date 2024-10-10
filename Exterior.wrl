@@ -1,0 +1,177 @@
+#VRML V2.0 utf8
+
+EXTERNPROTO Piso [
+	field SFVec3f posicion
+	field SFVec3f tamanio
+	field MFString url
+] "Modelos/Piso.wrl#Piso"
+
+
+# Pared trasera
+Transform {
+    translation -5 5 -60  # Mover hacia adelante
+    children [
+        Shape {
+            appearance Appearance {
+                material Material {
+                    diffuseColor 1 1 1  # Color blanco
+                }
+                texture ImageTexture {
+                    url "Imagenes/entornoDetras.jpg"  # Reemplaza con la ruta de tu imagen
+                }
+            }
+            geometry Box {
+                size 110 12 0.5  # Longitud aumentada a 80 (ancho, alto, profundidad)
+            }
+        }
+    ]
+}
+
+# Pared frente	   
+Transform {
+    translation -5 5 60  # Mover hacia atrás
+    children [
+        Shape {
+            appearance Appearance {
+                material Material {
+                    diffuseColor 1 1 1  # Color blanco
+                }
+                texture ImageTexture {
+                    url "Imagenes/entornoFrente.jpg"  # Reemplaza con la ruta de tu imagen
+                }
+            }
+            geometry Box {
+                size 110 12 0.5  # Longitud aumentada a 80
+            }
+        }
+    ]
+}
+
+		# Pared derecha
+Transform {
+    rotation 0 1 0 1.5708  # Rotar 90 grados
+    translation -60 4.9 0  # Mover hacia la izquierda
+    children [
+        Shape {
+            appearance Appearance {
+                material Material {
+                    diffuseColor 1 1 1  # Color blanco
+                }
+                texture ImageTexture {
+                    url "Imagenes/entornoDerecha.jpg"  # Reemplaza con la ruta de tu imagen
+                }
+            }
+            geometry Box {
+                size 120 12 0.5  # Longitud aumentada a 80
+            }
+        }
+    ]
+}
+		# Pared izquierda
+Transform {
+    rotation 0 1 0 -1.5708  # Rotar -90 grados
+    translation 50 4.9 0  # Mover hacia la derecha
+    children [
+        Shape {
+            appearance Appearance {
+                material Material {
+                    diffuseColor 1 1 1  # Color blanco
+                }
+                texture ImageTexture {
+                    url "Imagenes/entornoIzquierda.jpg"  # Reemplaza con la ruta de tu imagen
+                }
+            }
+            geometry Box {
+                size 120 12 0.5  # Longitud aumentada a 80
+            }
+        }
+    ]
+}
+
+DEF	FilaPiso Transform {
+	translation	0 0 -10
+	children [
+		Piso { url "Texturas/piedras_piso.jpg" tamanio 10 0.05 20 posicion 0 -0.1 -40 }
+		Piso { url "Texturas/piedras_piso.jpg" tamanio 10 0.05 20 posicion 0 -0.1 -20 }
+        Piso { url "Texturas/piedras_piso.jpg" tamanio 10 0.05 20 posicion 0 -0.1 0 }
+        Piso { url "Texturas/piedras_piso.jpg" tamanio 10 0.05 20 posicion 0 -0.1 20 }
+		Piso { url "Texturas/piedras_piso.jpg" tamanio 10 0.05 20 posicion 0 -0.1 40 }
+		Piso { url "Texturas/piedras_piso.jpg" tamanio 10 0.05 20 posicion 0 -0.1 60 }
+	]
+}
+
+
+# FILAS DE PISO
+Transform	{
+	translation	-55 0 0
+	children [
+		USE	FilaPiso
+	]
+}
+
+Transform	{
+	translation	-45 0 0
+	children [
+		USE	FilaPiso
+	]
+}
+Transform	{
+	translation	-35 0 0
+	children [
+		USE	FilaPiso
+	]
+}
+Transform	{
+	translation	-25 0 0
+	children [
+		USE	FilaPiso
+	]
+}
+Transform	{
+	translation	-15 0 0
+	children [
+		USE	FilaPiso
+	]
+}	
+
+Transform {
+    translation -5 0 0
+    children [
+        USE	FilaPiso
+    ]
+}
+
+Transform {
+    translation 5 0 0
+    children [
+        USE	FilaPiso
+    ]
+}
+Transform {
+    translation 15 0 0
+    children [
+        USE	FilaPiso
+    ]
+}
+Transform {
+    translation 25 0 0
+    children [
+        USE	FilaPiso
+    ]
+}
+Transform {
+    translation 35 0 0
+    children [
+        USE	FilaPiso
+    ]
+}
+
+Transform {
+    translation 45 0 0
+    children [
+        USE	FilaPiso
+    ]
+}
+		
+									
+						
