@@ -20,7 +20,7 @@ PROTO PanelTecho [
 					geometry Box { size IS dimensiones }
 					appearance Appearance {
 						texture	ImageTexture {
-							url	"./imagenes/tripley_01.jpg"
+							url	"../Texturas/tripley_01.jpg"
 						}
 					}
 				}
@@ -36,7 +36,7 @@ PROTO PanelTecho [
 				geometry Box { size 2 2 0.1 }
 				appearance Appearance {
 					texture	ImageTexture {
-						url	"./imagenes/tecnopor.jpg"
+						url	"../Texturas/tecnopor.jpg"
 					}
 				}
 			}

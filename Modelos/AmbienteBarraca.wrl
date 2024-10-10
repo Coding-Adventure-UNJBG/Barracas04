@@ -1,6 +1,6 @@
 #VRML V2.0 utf8
 
-# IMPORTAR PROTOTIPOS
+# IMPORTAR ESTRUCTURAS
 EXTERNPROTO	ParedesBarraca [
 	field SFVec3f posicion
 	field SFVec3f escala
@@ -9,15 +9,17 @@ EXTERNPROTO	ParedesBarraca [
 	field SFInt32 openVentana
 ] "ParedesBarraca.wrl#ParedesBarraca"
 
+EXTERNPROTO	TechoBarraca [
+	field SFVec3f posicion
+] "TechoBarraca.wrl#TechoBarraca"
+
+
+# IMPORTAR OBJETOS
 EXTERNPROTO	Piso [
 	field SFVec3f posicion
 	field SFVec3f tamanio
 	field MFString url
 ] "Piso.wrl#Piso"
-
-EXTERNPROTO	TechoBarraca [
-	field SFVec3f posicion
-] "TechoBarraca.wrl#TechoBarraca"
 
 EXTERNPROTO	Puerta [
 	field SFVec3f posicion
@@ -57,8 +59,8 @@ PROTO AmbienteBarraca [
 			Puerta { posicion 0 1.725 10.525 openPuerta IS openPuerta } 
 
 			# PISO FUERA							   # 0.0125
-			Piso { posicion -1.7375 -0.05 12.25 tamanio 6.025 0.05 3.5 url "./imagenes/piso_concreto.jpg" }
-			Piso { posicion 4.2875 -0.05 12.25 tamanio 6.025 0.05 3.5 url "./imagenes/piso_concreto.jpg" }  # 4.275
+			Piso { posicion -1.7375 -0.05 12.25 tamanio 6.025 0.05 3.5 url "../Texturas/piso_concreto.jpg" }
+			Piso { posicion 4.2875 -0.05 12.25 tamanio 6.025 0.05 3.5 url "../Texturas/piso_concreto.jpg" }  # 4.275
 		]
 	}
 }

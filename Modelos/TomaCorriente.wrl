@@ -55,7 +55,7 @@ PROTO TomaCorriente [
 						geometry Box { size 0 0.1 0.2}
 						appearance Appearance {
 							texture	ImageTexture {
-								url	"./imagenes/tomaCorriente.jpeg"
+								url	"../Texturas/tomaCorriente.jpeg"
 							}
 						}
 					}

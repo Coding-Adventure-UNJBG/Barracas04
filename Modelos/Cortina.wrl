@@ -15,7 +15,7 @@ PROTO Cortina [
 				geometry Box { size IS tamanio }
 				appearance Appearance {
 					material Material { diffuseColor  1 0 0 }
-					texture	ImageTexture { url "./imagenes/cortina.png" }
+					texture	ImageTexture { url "../Texturas/cortina.png" }
 				}
 			}
 		]

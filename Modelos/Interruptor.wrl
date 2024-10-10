@@ -1,8 +1,5 @@
 #VRML V2.0 utf8
 
-#VRML V2.0 utf8
-
-
 PROTO Interruptor [
 	field SFVec3f posicion 0 0 0 
 	field SFInt32 opcion -1
@@ -43,7 +40,7 @@ PROTO Interruptor [
 						geometry Box { size 0 0.08 0.05}
 						appearance Appearance {
 							texture	ImageTexture {
-								url	"./imagenes/interruptor.jpeg"
+								url	"../Texturas/interruptor.jpeg"
 							}
 						}
 					}

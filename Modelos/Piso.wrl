@@ -28,5 +28,5 @@ PROTO Piso [
 }
 
 
-#Piso {}
-Piso { url "./imagenes/piso_concreto.jpg" }
+Piso {}
+#Piso { url "../Texturas/piso_concreto.jpg" }

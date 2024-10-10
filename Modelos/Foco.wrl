@@ -77,8 +77,6 @@ PROTO Foco [
 		]
 	}
 
-	# Luz
-
 }
 
 Foco { }

@@ -19,7 +19,7 @@ PROTO Caja [
 						diffuseColor 0.7 0.5 0.3 
 					}
 					texture	ImageTexture {
-						url	"./imagenes/caja_carton.jpg"
+						url	"../Texturas/caja_carton.jpg"
 					}
 				}
 			}

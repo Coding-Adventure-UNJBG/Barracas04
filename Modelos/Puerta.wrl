@@ -24,7 +24,7 @@ PROTO Puerta [
 				Shape {
 					geometry Box { size 1.125 3.5 0.05 }
 					appearance Appearance {
-						texture	ImageTexture { url "./imagenes/puerta.jpg"}
+						texture	ImageTexture { url "../Texturas/puerta.jpg"}
 					}
 				}
 			]

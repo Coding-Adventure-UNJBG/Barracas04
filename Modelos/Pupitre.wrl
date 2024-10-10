@@ -20,7 +20,7 @@ PROTO Pupitre [
                         material Material {
                             diffuseColor 0.8 0.8 0.8  # Color gris para el asiento
                         }
-                        texture ImageTexture { url "./imagenes/madera_silla.jpeg" }  # Textura aplicada
+                        texture ImageTexture { url "../Texturas/madera_silla.jpeg" }  # Textura aplicada
                     }
                 }
             ]
@@ -42,7 +42,7 @@ PROTO Pupitre [
                         material Material {
                             diffuseColor 0.8 0.8 0.8  # Color gris para el respaldo
                         }
-                        texture ImageTexture { url "./imagenes/madera_silla.jpeg" }  # Textura aplicada
+                        texture ImageTexture { url "../Texturas/madera_silla.jpeg" }  # Textura aplicada
                     }
                 }
             ]

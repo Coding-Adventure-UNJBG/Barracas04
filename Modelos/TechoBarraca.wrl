@@ -1,14 +1,10 @@
 #VRML V2.0 utf8
 
+# IMPORTAR OBJETOS
 EXTERNPROTO	PanelTecho [
 	field SFVec3f posicion
 	field SFVec3f escala
 ] "PanelTecho.wrl#PanelTecho"
-
-EXTERNPROTO	Muro [
-	field SFVec3f posicion
-	field SFVec3f proporciones
-] "Muro.wrl#Muro"
 
 EXTERNPROTO	Foco [
 	field SFVec3f posicion
@@ -16,6 +12,7 @@ EXTERNPROTO	Foco [
 ] "Foco.wrl#Foco"
 
 
+# PROTO PRINCIPAL
 PROTO TechoBarraca [
 	field SFVec3f posicion 0 0 0
 ]
@@ -24,8 +21,7 @@ PROTO TechoBarraca [
 		translation	IS posicion
 		rotation 0 1 0 1.5708
 		children [
-			 #Muro { posicion 0 1.975 0 proporciones 2 4 0.05 }
-			 #Muro { posicion 2 1.975 0 proporciones 2 4 0.05 }
+			 
 			Transform {
 				rotation 1 0 0 1.5708
 				children [
@@ -106,16 +102,11 @@ PROTO TechoBarraca [
 					geometry Box { size 22.1 0.05 12.1}
 					appearance Appearance {
 						texture	ImageTexture {
-							url	"./imagenes/calamina2.jpg"
+							url	"../Texturas/calamina.jpg"
 						}
 					}
 				}
 			}
-
-
-			
-
-			#1.905
 		]
 	}
 }

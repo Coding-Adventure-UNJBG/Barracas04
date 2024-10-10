@@ -1,24 +1,16 @@
 #VRML V2.0 utf8
 
+# IMPORTAR OBJETOS
 EXTERNPROTO	Muro [
 	field SFVec3f posicion
 	field SFVec3f proporciones
 ] "Muro.wrl#Muro"
-
-EXTERNPROTO	Piso [
-	field SFVec3f posicion
-	field SFVec3f tamanio
-] "Piso.wrl#Piso"
 
 EXTERNPROTO	Ventana [
 	field SFVec3f posicion
 	field SFVec3f tamanio
 	field SFFloat transparencia
 ] "Ventana.wrl#Ventana"
-
-EXTERNPROTO	TechoBarraca [
-	field SFVec3f posicion
-] "TechoBarraca.wrl#TechoBarraca"
 
 EXTERNPROTO	TomaCorriente [
 	field SFVec3f posicion
@@ -34,6 +26,7 @@ EXTERNPROTO	Cortina [
 	field SFVec3f tamanio
 ] "Cortina.wrl#Cortina"
 
+# PROTO PRINCIPAL
 PROTO ParedesBarraca [
 	field SFVec3f posicion 0 0 0
 	field SFVec3f escala 1 1 1
@@ -214,25 +207,25 @@ PROTO ParedesBarraca [
 
 # PRUEBAS
 
-# Luz de ambiente
-DirectionalLight {
-	#ambientIntensity 10
-	color 1 1 1
-	intensity 10
-	direction 0 -8 0
-}
-
-
 #ParedesBarraca { posicion -36.15 0 0 aula "A-01"} 
 #ParedesBarraca { posicion -24.1 0 0 aula "A-02"} 
-#ParedesBarraca { posicion -12.05 0 0 aula "A-03"} 
+#ParedesBarraca { posicion -12.05 0 0 aula "A-03" openCortina 0 } 
 ParedesBarraca { aula "A-04" openCortina 1 }
-#ParedesBarraca { posicion 12.05 0 0 aula "A-05"} 
-#ParedesBarraca { posicion 24.1 0 0 aula "A-06"}
+#ParedesBarraca { posicion 12.05 0 0 aula "A-05" openVentana 1 } 
+#ParedesBarraca { posicion 24.1 0 0 aula "A-06" openVentana 0 }
 
 
+#EXTERNPROTO	TechoBarraca [
+#	field SFVec3f posicion
+#] "TechoBarraca.wrl#TechoBarraca"
 
-TechoBarraca { posicion -3.2 3.95 4 }
+#TechoBarraca { posicion -3.2 3.95 4 }
+
+
+#EXTERNPROTO	Piso [
+#	field SFVec3f posicion
+#	field SFVec3f tamanio
+#] "Piso.wrl#Piso"
 										
 # Suelo del mundo
-Piso { tamanio 12 0.05 22 posicion 1.3 0 -0.5 }
+#Piso { tamanio 12 0.05 22 posicion 1.3 0 -0.5 }

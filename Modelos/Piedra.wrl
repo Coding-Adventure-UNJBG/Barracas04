@@ -16,7 +16,7 @@ PROTO Piedra [
               diffuseColor 0.5 0.5 0.5
             }
 			texture	ImageTexture {
-				url	"./imagenes/piedra.jpg"
+				url	"../Texturas/piedra.jpg"
 			}
           }
           geometry Sphere {
@@ -29,3 +29,4 @@ PROTO Piedra [
 
 
 Piedra {}
+#Piedra { escala 1.1 0.7 1}
